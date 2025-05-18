@@ -1,0 +1,70 @@
+import {
+  Code,
+  Database,
+  FileType,
+  Globe,
+  Layout,
+  Layers,
+  PenTool,
+  Server,
+  Settings,
+  Smartphone,
+  Terminal,
+} from "lucide-react";
+import { SkillsData } from "@/types/skill";
+
+/**
+ * Skills data organized by category
+ */
+export const skillsData: SkillsData = {
+  frontend: [
+    { name: "HTML/CSS", proficiency: "expert", icon: Layout },
+    { name: "JavaScript", proficiency: "expert", icon: Code },
+    { name: "TypeScript", proficiency: "advanced", icon: FileType },
+    { name: "React", proficiency: "expert", icon: Code },
+    { name: "Next.js", proficiency: "advanced", icon: Layers },
+    { name: "Vue.js", proficiency: "intermediate", icon: Layers },
+    { name: "Tailwind CSS", proficiency: "expert", icon: PenTool },
+    { name: "SCSS/Sass", proficiency: "advanced", icon: PenTool },
+    { name: "Redux", proficiency: "advanced", icon: Layers },
+    { name: "GraphQL (Client)", proficiency: "intermediate", icon: Database },
+    { name: "Responsive Design", proficiency: "expert", icon: Smartphone },
+    { name: "Web Accessibility", proficiency: "advanced", icon: Globe },
+  ],
+  backend: [
+    { name: "Node.js", proficiency: "advanced", icon: Server },
+    { name: "Express", proficiency: "advanced", icon: Server },
+    { name: "Python", proficiency: "intermediate", icon: Code },
+    { name: "Django", proficiency: "beginner", icon: Layers },
+    { name: "PostgreSQL", proficiency: "intermediate", icon: Database },
+    { name: "MongoDB", proficiency: "advanced", icon: Database },
+    { name: "GraphQL (Server)", proficiency: "intermediate", icon: Database },
+    { name: "RESTful APIs", proficiency: "expert", icon: Globe },
+    { name: "Firebase", proficiency: "advanced", icon: Database },
+    { name: "AWS", proficiency: "intermediate", icon: Server },
+    { name: "Serverless", proficiency: "intermediate", icon: Server },
+  ],
+  design: [
+    { name: "Figma", proficiency: "advanced", icon: PenTool },
+    { name: "Adobe XD", proficiency: "intermediate", icon: PenTool },
+    { name: "UI Design", proficiency: "advanced", icon: Layout },
+    { name: "UX Design", proficiency: "intermediate", icon: Layout },
+    { name: "Wireframing", proficiency: "advanced", icon: PenTool },
+    { name: "Prototyping", proficiency: "advanced", icon: Layers },
+    { name: "Design Systems", proficiency: "advanced", icon: Settings },
+    { name: "Typography", proficiency: "intermediate", icon: PenTool },
+    { name: "Color Theory", proficiency: "intermediate", icon: PenTool },
+  ],
+  tools: [
+    { name: "Git", proficiency: "expert", icon: Terminal },
+    { name: "GitHub", proficiency: "expert", icon: Code },
+    { name: "VS Code", proficiency: "expert", icon: Code },
+    { name: "Docker", proficiency: "intermediate", icon: Settings },
+    { name: "Jest", proficiency: "advanced", icon: Terminal },
+    { name: "CI/CD", proficiency: "intermediate", icon: Settings },
+    { name: "Webpack", proficiency: "intermediate", icon: Settings },
+    { name: "Vite", proficiency: "advanced", icon: Settings },
+    { name: "npm/yarn/pnpm", proficiency: "expert", icon: Settings },
+    { name: "Postman", proficiency: "advanced", icon: Settings },
+  ],
+};
