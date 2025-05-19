@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { useRef } from 'react'
-import { gsap, useGSAP, ScrambleTextPlugin } from '@/lib/gsap'
+import { gsap } from '@/lib/gsap'
 import { cn } from '@/lib/utils'
 
 interface SectionTitleProps {
@@ -15,19 +15,22 @@ const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 
 export default function SectionTitle({ children, className, as: Tag = 'h2' }: SectionTitleProps) {
   const textRef = useRef<HTMLSpanElement>(null)
+  const [isAnimating, setIsAnimating] = React.useState(false)
 
   // Scramble on hover
   const handleHover = () => {
-    if (!textRef.current) return
+    if (!textRef.current || isAnimating) return
+    setIsAnimating(true)
     gsap.to(textRef.current, {
       scrambleText: {
         text: textRef.current.textContent ?? '',
         chars: scrambleChars,
         speed: 3,
-        revealDelay: 0,
+        revealDelay: 0.15,
       },
-      duration: 0.5,
+      duration: 1.25,
       ease: 'none',
+      onComplete: () => setIsAnimating(false),
     })
   }
 
