@@ -1,4 +1,16 @@
-import { Project } from "@/types/project";
+import { Project } from '@/types/project'
+
+/**
+ * Record of GitHub repositories to fetch dynamically, with optional overrides
+ * Example: { 'username/repo1': { title: 'Custom Title' } }
+ */
+export const githubRepositories: Record<string, Partial<Project>> = {
+  'dinghino/tictoc': {},
+  'dinghino/stocks-historical-data': {
+    title: 'stonks-o-fetcher',
+  },
+  'dinghino/logica-international': {},
+}
 
 /**
  * Static project data
@@ -6,57 +18,72 @@ import { Project } from "@/types/project";
  */
 export const projectData: Project[] = [
   {
-    id: "1",
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform with user authentication, product management, and payment processing.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubRepo: "username/ecommerce-platform",
-    demoUrl: "https://example-ecommerce.com",
+    id: '1',
+    title: 'E-Commerce Platform',
+    description:
+      'A full-stack e-commerce platform with user authentication, product management, and payment processing.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    githubRepo: 'username/ecommerce-platform',
+    demoUrl: 'https://example-ecommerce.com',
     featured: true,
+    primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    languages: ['TypeScript', 'JavaScript'],
   },
   {
-    id: "2",
-    title: "Portfolio Website",
-    description: "A responsive portfolio website built with Next.js and Tailwind CSS.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    githubRepo: "username/portfolio",
-    demoUrl: "https://portfolio-example.com",
+    id: '2',
+    title: 'Portfolio Website',
+    description: 'A responsive portfolio website built with Next.js and Tailwind CSS.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    githubRepo: 'username/portfolio',
+    demoUrl: 'https://portfolio-example.com',
     featured: true,
+    primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    languages: ['TypeScript', 'JavaScript'],
   },
   {
-    id: "3",
-    title: "Task Management App",
-    description: "A task management application with drag-and-drop functionality and team collaboration features.",
-    technologies: ["React", "Redux", "Firebase"],
-    githubRepo: "username/task-manager",
-    demoUrl: "https://task-app-example.com",
+    id: '3',
+    title: 'Task Management App',
+    description:
+      'A task management application with drag-and-drop functionality and team collaboration features.',
+    technologies: ['React', 'Redux', 'Firebase'],
+    githubRepo: 'username/task-manager',
+    demoUrl: 'https://task-app-example.com',
     featured: true,
+    primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    languages: ['JavaScript'],
   },
   {
-    id: "4",
-    title: "Weather Dashboard",
-    description: "A weather dashboard that displays current weather and forecasts for multiple locations.",
-    technologies: ["JavaScript", "OpenWeather API", "Chart.js"],
-    githubRepo: "username/weather-dashboard",
-    demoUrl: "https://weather-example.com",
+    id: '4',
+    title: 'Weather Dashboard',
+    description:
+      'A weather dashboard that displays current weather and forecasts for multiple locations.',
+    technologies: ['JavaScript', 'OpenWeather API', 'Chart.js'],
+    githubRepo: 'username/weather-dashboard',
+    demoUrl: 'https://weather-example.com',
     featured: false,
+    primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    languages: ['JavaScript'],
   },
   {
-    id: "5",
-    title: "Blog Platform",
-    description: "A blog platform with markdown support, categories, and user comments.",
-    technologies: ["Next.js", "Prisma", "PostgreSQL"],
-    githubRepo: "username/blog-platform",
-    demoUrl: "https://blog-example.com",
+    id: '5',
+    title: 'Blog Platform',
+    description: 'A blog platform with markdown support, categories, and user comments.',
+    technologies: ['Next.js', 'Prisma', 'PostgreSQL'],
+    githubRepo: 'username/blog-platform',
+    demoUrl: 'https://blog-example.com',
     featured: false,
+    primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    languages: ['TypeScript', 'JavaScript'],
   },
   {
-    id: "6",
-    title: "Real-time Chat Application",
-    description: "A real-time chat application with private messaging and channels.",
-    technologies: ["Socket.io", "Express", "MongoDB"],
-    githubRepo: "username/chat-app",
-    demoUrl: "https://chat-example.com",
+    id: '6',
+    title: 'Real-time Chat Application',
+    description: 'A real-time chat application with private messaging and channels.',
+    technologies: ['Socket.io', 'Express', 'MongoDB'],
+    githubRepo: 'username/chat-app',
+    demoUrl: 'https://chat-example.com',
     featured: true,
+    primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    languages: ['JavaScript'],
   },
-];
+]
