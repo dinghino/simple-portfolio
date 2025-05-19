@@ -17,7 +17,7 @@ export function Contact() {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <Card className="p-4 bg-secondary/70 shadow-none border-xs">
+          <Card className="p-4 bg-muted/30 shadow-none border-xs">
             {/* <CardContent> */}
               <ContactForm />
             {/* </CardContent> */}

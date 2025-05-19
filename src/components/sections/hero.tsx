@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
 import Link from 'next/link'
+import ScrambleRole from '@/components/scramble-role'
 
 const headingVariants = cva(
   'font-mono font-bold tracking-tight leading-none transition-opacity duration-500',
@@ -58,18 +59,18 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-start gap-4">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-muted/30">
+      <div className="container px-4 md:px-6 min-h-[60dvh]">
+        <article className="flex flex-col items-start gap-4">
           <p
             className={cn(
               paragraphVariants({ visible: isVisible }),
               'text-sm md:text-base font-mono text-primary mb-2 order-first',
             )}
           >
-            Hello, I'm a
+            Hello, I'm <span className="font-bold">Daniele</span>
           </p>
-          <h1 className={cn(headingVariants({ visible: isVisible }))}>Developer & Designer</h1>
+          <h1 className={cn(headingVariants({ visible: isVisible }))}><ScrambleRole /></h1>
           <h2
             className={cn(
               headingVariants({ size: 'small', visible: isVisible }),
@@ -79,7 +80,7 @@ export function Hero() {
             Crafting digital experiences
           </h2>
           <p className={cn(paragraphVariants({ visible: isVisible }))}>
-            I specialize in building modern, responsive websites and applications with a focus on
+            I specialize in building modern, responsive solutions with a focus on
             clean design, performance, and accessibility.
           </p>
           <div
@@ -98,7 +99,7 @@ export function Hero() {
               <Link href="#contact">Contact me</Link>
             </Button>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   )
