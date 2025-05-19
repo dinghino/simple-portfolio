@@ -6,6 +6,9 @@ import { skillsData } from "@/data/skills";
 import { SkillCategory } from "@/types/skill";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
+import SkillsGrid from "@/components/skills-grid";
+import { SkillItem } from "@/components/skill-item";
+import SectionTitle from "@/components/section-title";
 
 const skillItemVariants = cva(
   "flex items-center px-4 py-2 border-0 bg-muted/40 hover:bg-muted/60 transition-colors duration-200",
@@ -34,11 +37,10 @@ export function Skills() {
     <section id="skills" className="py-16 md:py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-start gap-4 mb-12">
-          <h2 className="text-3xl font-mono font-bold tracking-tight">
-            Skills & Expertise
-          </h2>
+          <SectionTitle>Skills & Expertise</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">
-            My technical skills and areas of expertise across different domains.
+            Some of the technologies and tools I have experience with. I am always eager to learn
+            and explore new technologies, so this list is constantly evolving.
           </p>
         </div>
 
@@ -53,7 +55,7 @@ export function Skills() {
               <TabsTrigger
                 key={category}
                 value={category}
-                className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+                className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none cursor-pointer"
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </TabsTrigger>
@@ -61,21 +63,25 @@ export function Skills() {
           </TabsList>
           {Object.entries(skillsData).map(([category, skills]) => (
             <TabsContent key={category} value={category} className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {skills.map((skill) => (
+              <SkillsGrid
+                skills={skills}
+                renderSkill={(skill) => (
                   <div
-                    key={skill.name}
                     className={cn(
                       skillItemVariants({ proficiency: skill.proficiency })
                     )}
                   >
-                    {skill.icon && (
-                      <skill.icon className="h-5 w-5 mr-2 shrink-0" />
-                    )}
-                    <span>{skill.name}</span>
+                    <SkillItem
+                      name={skill.name}
+                      icon={
+                        skill.icon && (
+                          <skill.icon className="h-5 w-5 mr-2 shrink-0" />
+                        )
+                      }
+                    />
                   </div>
-                ))}
-              </div>
+                )}
+              />
             </TabsContent>
           ))}
         </Tabs>

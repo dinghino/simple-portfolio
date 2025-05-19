@@ -15,7 +15,7 @@ export const HERO_ROLES = [
   // '█▓▒░ TypeScript Ninja ░▒▓█',
   'Performance Tuner',
   // '█▓▒░ API Alchemist ░▒▓█',
-  'Security Advocate',
+  // 'Security Advocate',
   'Tech Lead',
   // '█▓▒░ React Virtuoso ░▒▓█',
 ]

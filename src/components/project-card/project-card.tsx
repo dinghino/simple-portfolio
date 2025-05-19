@@ -1,10 +1,7 @@
-'use client'
-
-import React, { useRef } from 'react'
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
-import { gsap, useGSAP } from '@/lib/gsap'
+import { cn } from '@/lib/utils'
 
 import type { Project } from '@/types'
 
@@ -13,34 +10,16 @@ import { Button } from '@/components/ui/button'
 
 interface ProjectCardProps {
   project: Project
+  className?: string
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const cardRef = useRef<HTMLDivElement>(null)
-
-  // Animate in on mount/scroll
-  useGSAP(() => {
-    if (!cardRef.current) return
-    gsap.fromTo(
-      cardRef.current,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 90%',
-        },
-      },
-    )
-  }, [])
-
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
   return (
     <Card
-      ref={cardRef}
-      className="border-0 bg-muted/50 transition-all duration-300 hover:bg-muted flex flex-col rounded-xs"
+      className={cn(
+        'border-0 bg-muted/50 transition-all duration-300 hover:bg-muted flex flex-col rounded-xs',
+        className,
+      )}
     >
       <CardHeader className="flex flex-row justify-between items-center">
         <CardTitle className="font-mono text-xl flex-1">{project.title}</CardTitle>

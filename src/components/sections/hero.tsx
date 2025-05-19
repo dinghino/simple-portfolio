@@ -60,7 +60,7 @@ export function Hero() {
 
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-muted/30">
-      <div className="container px-4 md:px-6 min-h-[60dvh]">
+      <div className="container px-4 md:px-6 min-h-[40dvh]">
         <article className="flex flex-col items-start gap-4">
           <p
             className={cn(
@@ -77,7 +77,7 @@ export function Hero() {
               'text-muted-foreground mt-2',
             )}
           >
-            Crafting digital experiences
+            Solving problems with code and design 
           </h2>
           <p className={cn(paragraphVariants({ visible: isVisible }))}>
             I specialize in building modern, responsive solutions with a focus on

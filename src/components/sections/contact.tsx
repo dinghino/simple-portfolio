@@ -4,13 +4,14 @@ import { ContactForm } from '@/components/contact-form'
 import { contactInfo, socials } from '@/data/contact'
 import { SocialButton } from '@/components/social-button'
 import { Card, CardContent } from '@/components/ui/card'
+import SectionTitle from '@/components/section-title'
 
 export function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-start gap-4 mb-12">
-          <h2 className="text-3xl font-mono font-bold tracking-tight">Get in Touch</h2>
+          <SectionTitle>Get in Touch</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">
             Have a question or want to work together? Send me a message and I'll get back to you as
             soon as possible.
