@@ -1,34 +1,5 @@
-import Link from 'next/link'
-import { Linkedin, Mail } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
-import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
-
-/**
- * Social links for the footer
- */
-const socialLinks = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com',
-    icon: SiGithub,
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://linkedin.com',
-    icon: Linkedin,
-  },
-  {
-    name: 'Twitter',
-    href: 'https://twitter.com',
-    icon: SiX,
-  },
-  {
-    name: 'Email',
-    href: 'mailto:contact@example.com',
-    icon: Mail,
-  },
-]
+import { contactInfo, socials } from '@/data/contact'
+import { SocialButton } from '@/components/social-button/social-button'
 
 /**
  * Footer component displaying social links and copyright information
@@ -42,20 +13,14 @@ export function Footer() {
             &copy; {new Date().getFullYear()} dinghino. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            {socialLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  buttonVariants({ variant: 'ghost', size: 'icon' }),
-                  'text-muted-foreground hover:text-foreground transition-colors',
-                )}
-              >
-                <link.icon className="h-5 w-5" />
-                <span className="sr-only">{link.name}</span>
-              </Link>
+            {socials.map((social) => (
+              <SocialButton
+                key={social.name}
+                icon={social.icon}
+                url={social.url}
+                name={social.name}
+                variant="icon"
+              />
             ))}
           </div>
         </div>

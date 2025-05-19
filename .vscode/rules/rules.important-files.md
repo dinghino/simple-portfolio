@@ -36,6 +36,12 @@ This file tracks important files in the project that should be included in every
 - `src/lib/github/*` - GitHub API helpers (barrel exported via index.ts)
 - `src/lib/github/api.ts` - GitHub API wrapper
 - `src/lib/github/adapter.ts` - GitHub to Project adapter
+- `src/components/project-card/contact-form.tsx` - Contact form component
+- `src/components/sections/contact.tsx` - Contact section
+- `src/components/sections/footer.tsx` - Footer section
+- `src/components/project-card/social-button.tsx` - Social button shared component
+- `src/data/contact.ts` - Centralized contact and socials data
+- `src/schemas/contact-form.ts` - Contact form schema and types
 
 ## Documentation
 
@@ -46,3 +52,6 @@ This file tracks important files in the project that should be included in every
 
 - `.next/*` - Next.js build output
 - `node_modules/*` - Project dependencies
+
+## Coding Standards
+- Always use the `cn` utility from `lib/utils` for class merging, especially when using `cva` for variants.

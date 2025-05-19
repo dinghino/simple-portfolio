@@ -1,6 +1,10 @@
 # Code Standards and Rules
 
 - Do not assume. In case of doubt or options ask the team.
+- twitter does not exists anymore. it is called `X` now. icons and links should be updated accordingly.
+- it is ok to use `twitter` internally in keys and variables, but the UI should always use `X`.
+- Use `pnpm` for package management.
+- we are in Next.JS. use `Link` from `next/link` instead of `a` elements.
 
 ## TypeScript and React Standards
 
@@ -11,6 +15,8 @@
    - Keep components small and focused on a single responsibility
    - components should have their own folder with an `index.ts` file for barrel exports
    - Use `React.FC` for functional components
+   - use `class-variance-authority` for variants and always use the `cn` utility from `lib/utils` for class name merging (do not use `clsx` or `twMerge` directly)
+   - do NOT use ternary operators for class names
 
 2. **Type Definitions**
    - Define types in separate files under `src/types/`
@@ -33,6 +39,8 @@
    - Prefer lowercase and dash-case for file names
    - Prefer usage of utilities and existing libraries
    - Use of ternary operators for css classes is discouraged
+   - keep components small and focused on a single responsibility
+   - create sub components and reusable parts when needed and possible
 
 5. **State Management**
    - Use React hooks for local state
