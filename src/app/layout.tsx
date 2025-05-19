@@ -4,8 +4,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme'
-import { Navbar } from '@/components/sections/navbar'
-import { Footer } from '@/components/sections/footer'
+import { Navbar, Footer } from '@/components/sections'
+import { Toaster } from '@/components/ui/toaster'
+import { cn } from '@/lib'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,13 +26,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${robotoMono.variable} font-sans`}>
+      <body
+        className={cn(
+          `${inter.variable} ${robotoMono.variable} font-sans`,
+          'min-h-screen flex flex-col',
+        )}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="grow">{children}</main>
-            <Footer />
-          </div>
+          <Navbar />
+          <main className="grow">{children}</main>
+          <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

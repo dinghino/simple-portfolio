@@ -2,7 +2,8 @@
 
 import { ContactForm } from '@/components/contact-form'
 import { contactInfo, socials } from '@/data/contact'
-import { SocialButton } from '@/components/social-button/social-button'
+import { SocialButton } from '@/components/social-button'
+import { Card, CardContent } from '@/components/ui/card'
 
 export function Contact() {
   return (
@@ -16,9 +17,11 @@ export function Contact() {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <ContactForm />
-          </div>
+          <Card className="p-4 bg-secondary/70 shadow-none border-xs">
+            {/* <CardContent> */}
+              <ContactForm />
+            {/* </CardContent> */}
+          </Card>
           <div className="flex flex-col gap-8">
             <div>
               <h3 className="text-xl font-mono font-bold mb-4">Contact Information</h3>
