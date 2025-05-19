@@ -1,6 +1,10 @@
+'use client'
+
+import React, { useRef } from 'react'
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
+import { gsap, useGSAP } from '@/lib/gsap'
 
 import type { Project } from '@/types'
 
@@ -12,8 +16,32 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  // Animate in on mount/scroll
+  useGSAP(() => {
+    if (!cardRef.current) return
+    gsap.fromTo(
+      cardRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top 90%',
+        },
+      },
+    )
+  }, [])
+
   return (
-    <Card className="border-0 bg-muted/50 transition-all duration-300 hover:bg-muted flex flex-col rounded-xs">
+    <Card
+      ref={cardRef}
+      className="border-0 bg-muted/50 transition-all duration-300 hover:bg-muted flex flex-col rounded-xs"
+    >
       <CardHeader className="flex flex-row justify-between items-center">
         <CardTitle className="font-mono text-xl flex-1">{project.title}</CardTitle>
         {project.primaryLanguage && (
@@ -55,7 +83,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         {project.demoUrl && (
           <Button variant="outline" size="sm" className="gap-1" asChild>
             <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-              <span>View Demo</span>
+              <span>{project.visitLabel ?? 'View Demo'}</span>
               <ExternalLink className="h-4 w-4" />
             </Link>
           </Button>

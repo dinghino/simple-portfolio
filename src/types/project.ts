@@ -18,6 +18,7 @@ export interface Project {
     color?: string;
   };
   languages?: string[];
+  visitLabel?: string;
 }
 
 export type GithubRepository =

@@ -9,7 +9,9 @@ export const githubRepositories: Record<string, Partial<Project>> = {
   'dinghino/stocks-historical-data': {
     title: 'stonks-o-fetcher',
   },
-  'dinghino/logica-international': {},
+  'dinghino/logica-international': {
+    visitLabel: 'Visit',
+  },
 }
 
 /**
