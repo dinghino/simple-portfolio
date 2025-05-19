@@ -37,7 +37,7 @@ export default function SectionTitle({ children, className, as: Tag = 'h2' }: Se
   return (
     <Tag
       className={cn(
-        'relative flex items-center font-mono font-bold tracking-tight text-5xl md:text-7xl group',
+        'relative flex items-center font-mono font-bold tracking-tight text-2xl lg:text-5xl group',
         className,
       )}
     >
