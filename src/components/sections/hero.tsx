@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
 import Link from 'next/link'
 import ScrambleRole from '@/components/scramble-role'
+import HeroBackground, { type WaveOptions } from '@/components/hero-background'
 
 const headingVariants = cva(
   'font-mono font-bold tracking-tight leading-none transition-opacity duration-500',
@@ -14,7 +15,7 @@ const headingVariants = cva(
     variants: {
       size: {
         default: 'text-4xl md:text-5xl lg:text-6xl',
-        small: 'text-3xl md:text-4xl lg:text-5xl',
+        small: 'text-lg md:text-2xl lg:text-3xl',
       },
       visible: {
         true: 'opacity-100',
@@ -43,9 +44,16 @@ const paragraphVariants = cva(
   },
 )
 
-/**
- * Hero section with animated entrance
- */
+// Waves configuration
+const LINES_COUNT = 5
+const waveOptions: WaveOptions[] = Array.from({ length: LINES_COUNT }, (_, i) => ({
+  amplitude: 32 * (i + 1),
+  frequency: 1 + i * 0.15,
+  speed: 2000 + i * 2000,
+  phase: (i * Math.PI) / LINES_COUNT,
+  xOffset: -256 - i * 24,
+}))
+
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -59,8 +67,9 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-muted/30">
-      <div className="container px-4 md:px-6 min-h-[40dvh]">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+      <HeroBackground waveOptions={waveOptions} />
+      <div className="container px-4 md:px-6 min-h-[40dvh] relative z-10">
         <article className="flex flex-col items-start gap-4">
           <p
             className={cn(
@@ -70,18 +79,20 @@ export function Hero() {
           >
             Hello, I'm <span className="font-bold">Daniele</span>
           </p>
-          <h1 className={cn(headingVariants({ visible: isVisible }))}><ScrambleRole /></h1>
+          <h1 className={cn(headingVariants({ visible: isVisible }))}>
+            <ScrambleRole />
+          </h1>
           <h2
             className={cn(
               headingVariants({ size: 'small', visible: isVisible }),
               'text-muted-foreground mt-2',
             )}
           >
-            Solving problems with code and design 
+            Solving problems with code and design
           </h2>
           <p className={cn(paragraphVariants({ visible: isVisible }))}>
-            I specialize in building modern, responsive solutions with a focus on
-            clean design, performance, and accessibility.
+            I specialize in building modern, responsive solutions with a focus on clean design,
+            performance, and accessibility.
           </p>
           <div
             className={cn(
