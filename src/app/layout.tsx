@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme'
 import { Navbar, Footer } from '@/components/sections'
-import { Toaster } from '@/components/ui/toaster'
+import { Toaster } from '@/components/ui/sonner'
 import { cn } from '@/lib'
 
 const inter = Inter({

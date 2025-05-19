@@ -41,6 +41,7 @@
    - Use of ternary operators for css classes is discouraged
    - keep components small and focused on a single responsibility
    - create sub components and reusable parts when needed and possible
+   - Extract props, params and return types into their own types instead of defining them inline
 
 5. **State Management**
    - Use React hooks for local state

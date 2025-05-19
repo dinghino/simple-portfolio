@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-// import { toast } from 'sonner'
+import { toast } from 'sonner'
 
 import { contactFormSchema, ContactFormValues } from '@/schemas/contact-form'
 
@@ -18,11 +18,9 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { useToast } from '@/hooks'
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -43,24 +41,21 @@ export function ContactForm() {
       })
       const result = await response.json()
       if (result.success) {
-        toast({
-          title: 'Message sent!',
-          description: 'Thank you for your message. We will get back to you soon.',
-          variant: 'default',
+        toast.success('Thank you for your message. We will get back to you soon.', {
+          description: 'Message sent!',
         })
         form.reset()
       } else {
-        toast({
-          title: 'Error',
-          description: result.error || 'Failed to send message. Please try again later.',
-          variant: 'destructive',
-        })
+        toast.error(
+          result.error || 'Failed to send message. Please try again later.',
+          {
+            description: 'Error',
+          }
+        )
       }
     } catch (e) {
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again later.',
-        variant: 'destructive',
+      toast.error('Failed to send message. Please try again later.', {
+        description: 'Error',
       })
     }
     setIsSubmitting(false)
