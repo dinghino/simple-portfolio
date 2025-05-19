@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.0.1",
     "@icons-pack/react-simple-icons": "^12.8.0",
     "@next/swc-wasm-nodejs": "15.3.2",
@@ -52,6 +53,7 @@
     "embla-carousel-react": "^8.6.0",
     "eslint": "9.27.0",
     "eslint-config-next": "15.3.2",
+    "gsap": "^3.13.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
