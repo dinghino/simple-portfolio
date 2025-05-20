@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Lock } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 import { cn } from '@/lib/utils'
 
@@ -21,14 +21,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
         className,
       )}
     >
-      <CardHeader className="flex flex-row justify-between items-center">
-        <CardTitle className="font-mono text-xl flex-1">{project.title}</CardTitle>
+      <CardHeader className="flex flex-col items-start gap-1 pb-2">
+        <div className="w-full flex flex-row justify-between items-center">
+          <CardTitle className="font-mono text-xl flex-1 flex items-center justify-between gap-2">
+            {project.title}
+            {project.private && (
+              <span className="inline-flex items-center" aria-label="Private repository">
+                <Lock className="h-4 w-4 text-muted-foreground opacity-60" />
+              </span>
+            )}
+          </CardTitle>
+        </div>
         {project.primaryLanguage && (
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2 mt-1">
             <span
-              className="inline-block w-3 h-3 rounded-full border"
+              className="inline-block w-2.5 h-2.5 rounded-full border border-muted mr-1"
               style={{ backgroundColor: project.primaryLanguage.color || '#888' }}
-              title={project.primaryLanguage.name}
             />
             <span className="text-xs font-mono text-muted-foreground">
               {project.primaryLanguage.name}

@@ -17,5 +17,6 @@ export function githubRepoToProject(
     lastUpdated: repo.updated_at,
     primaryLanguage: opts?.primaryLanguage,
     languages: opts?.languages,
+    private: repo.private,
   } satisfies Project
 }
