@@ -37,7 +37,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
     <div
       ref={containerRef}
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2"
     >
       {projects.map((project, idx) => (
         <ProjectCard key={project.id ?? idx} project={project} className="project-card-animate" />
