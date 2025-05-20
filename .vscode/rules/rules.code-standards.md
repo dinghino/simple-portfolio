@@ -5,6 +5,9 @@
 - it is ok to use `twitter` internally in keys and variables, but the UI should always use `X`.
 - Use `pnpm` for package management.
 - we are in Next.JS. use `Link` from `next/link` instead of `a` elements.
+- All internal navigation links must use the Next.js `Link` component from `next/link` (never use `<a>` for internal links).
+- GSAP is fully open source (FOSS). [See documentation.](https://gsap.com/docs/v3/)
+- For GSAP usage in React, always use the official `useGSAP` hook for animation lifecycle management. [See React guide.](https://gsap.com/resources/React/)
 
 ## TypeScript and React Standards
 
