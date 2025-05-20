@@ -67,7 +67,10 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+    <section
+      id="hero"
+      className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden"
+    >
       <HeroBackground waveOptions={waveOptions} />
       <div className="container px-4 md:px-6 min-h-[40dvh] relative z-10">
         <article className="flex flex-col items-start gap-4">
@@ -79,7 +82,7 @@ export function Hero() {
           >
             Hello, I'm <span className="font-bold">Daniele</span>
           </p>
-          <h1 className={cn(headingVariants({ visible: isVisible }))}>
+          <h1 className={cn(headingVariants({ visible: isVisible }), 'min-h-[8rem]')}>
             <ScrambleRole />
           </h1>
           <h2
@@ -95,10 +98,10 @@ export function Hero() {
             performance, and accessibility.
           </p>
           <div
-            className={cn(
-              'flex gap-4 mt-4 transition-opacity duration-500 delay-400',
-              isVisible ? 'opacity-100' : 'opacity-0',
-            )}
+            className={cn('flex gap-4 mt-4 transition-opacity duration-500 delay-400', {
+              'opacity-100': isVisible,
+              'opacity-0': !isVisible,
+            })}
           >
             <Button asChild className="group">
               <Link href="#projects">
