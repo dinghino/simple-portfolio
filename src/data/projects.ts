@@ -11,6 +11,12 @@ export const githubRepositories: Record<string, Partial<Project>> = {
     'A work in progress personal budgeting application that helps users track their finances, tasks and more.',
     technologies: ['turborepo', 'Next.js', 'fastify', 'PostgreSQL'],
   },
+  'dinghino/simple-portfolio':{
+    title: 'Personal website',
+    description: 'The source of this very own website',
+    technologies: ['Next.js', 'gsap', 'Tailwind', 'shadcn/ui', 'Copilot'],
+
+  },
   'dinghino/tictoc': {
     description: 'A simple C++ timer library to handle timeouts and intervals for IoT development.',
   },
@@ -36,22 +42,16 @@ export const projectData: Project[] = [
     description:
       'A full-stack e-commerce platform with user authentication, product management, and payment processing.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    // repository: { url: 'username/ecommerce-platform', source: 'github' },
-    // demoUrl: 'https://example-ecommerce.com',
     featured: true,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
-    // languages: ['TypeScript', 'JavaScript'],
   },
   {
     id: '2',
     title: 'Portfolio Website',
     description: 'A responsive portfolio website built with Next.js and Tailwind CSS.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    // repository: { url: 'username/portfolio', source: 'bitbucket' },
-    // demoUrl: 'https://portfolio-example.com',
     featured: true,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
-    // languages: ['TypeScript', 'JavaScript'],
   },
   {
     id: '3',
@@ -59,11 +59,8 @@ export const projectData: Project[] = [
     description:
       'A task management application with drag-and-drop functionality and team collaboration features.',
     technologies: ['React', 'Redux', 'Firebase'],
-    // repository: { url: 'username/task-manager', source: 'github' },
-    // demoUrl: 'https://task-app-example.com',
     featured: true,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
-    // languages: ['JavaScript'],
   },
   {
     id: '4',
@@ -71,32 +68,23 @@ export const projectData: Project[] = [
     description:
       'A weather dashboard that displays current weather and forecasts for multiple locations.',
     technologies: ['JavaScript', 'OpenWeather API', 'Chart.js'],
-    // repository: { url: 'username/weather-dashboard', source: 'github' },
-    // demoUrl: 'https://weather-example.com',
     featured: false,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
-    // languages: ['JavaScript'],
   },
   {
     id: '5',
     title: 'Blog Platform',
     description: 'A blog platform with markdown support, categories, and user comments.',
     technologies: ['Next.js', 'Prisma', 'PostgreSQL'],
-    // repository: { url: 'username/blog-platform', source: 'github' },
-    // demoUrl: 'https://blog-example.com',
     featured: false,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
-    // languages: ['TypeScript', 'JavaScript'],
   },
   {
     id: '6',
     title: 'Real-time Chat Application',
     description: 'A real-time chat application with private messaging and channels.',
     technologies: ['Socket.io', 'Express', 'MongoDB'],
-    // repository: { url: 'username/chat-app', source: 'github' },
-    // demoUrl: 'https://chat-example.com',
     featured: true,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
-    // languages: ['JavaScript'],
   },
 ]
