@@ -2,6 +2,14 @@
 
 This file tracks important files in the project that should be included in every chat.
 
+## Instructions
+
+- `.vscode/rules/important-files.instructions.md` - This file, containing reference to project structure and important files.
+- `.vscode/rules/code-standards.instructions.md` - Code standards and general rules for the project.
+- `.vscode/rules/design-system.instructions.md` - General design system and guidelines for the project.
+
+These file can an need to be followed and updated when needed by user and assistant alike.
+
 ## Core Configuration Files
 
 - `package.json` - Project dependencies and scripts

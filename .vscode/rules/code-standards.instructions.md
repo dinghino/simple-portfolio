@@ -1,3 +1,8 @@
+---
+applyTo: '**/*.{ts,tsx}'
+---
+
+
 # Code Standards and Rules
 
 - Do not assume. In case of doubt or options ask the team.
