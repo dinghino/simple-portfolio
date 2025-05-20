@@ -8,19 +8,25 @@ export interface Project {
   description: string
   image?: string
   technologies: string[]
-  githubRepo?: string // made optional
+  repository?: Repository
   demoUrl?: string
   featured: boolean
   stars?: number
   lastUpdated?: string | null
-  primaryLanguage?: {
-    name: string;
-    color?: string;
-  };
-  languages?: string[];
-  visitLabel?: string;
-  private?: boolean;
+  primaryLanguage?: Language
+  visitLabel?: string
+  private?: boolean
 }
 
 export type GithubRepository =
   RestEndpointMethodTypes['repos']['listForAuthenticatedUser']['response']['data'][number]
+
+export type Language = {
+  name: string
+  color?: string
+}
+
+export type Repository = {
+  url: string
+  source: 'github' | 'bitbucket' | 'gitlab'
+}

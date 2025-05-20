@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ExternalLink, Lock } from 'lucide-react'
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import { IconType, SiBitbucket, SiGithub, SiGitlab } from '@icons-pack/react-simple-icons'
 import { cn } from '@/lib/utils'
 
 import type { Project } from '@/types'
@@ -55,14 +55,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
       </div>
     </CardContent>
     <CardFooter className="flex justify-between pb-4">
-      {project.githubRepo && (
+      {project.repository && (
         <Button variant="secondary" size="icon" className="gap-1" asChild>
           <Link
-            href={`https://github.com/${project.githubRepo}`}
+            href={`https://github.com/${project.repository.url}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiGithub className="h-4 w-4" />
+            <RepositoryIcon source={project.repository.source} />
           </Link>
         </Button>
       )}
@@ -77,3 +77,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
     </CardFooter>
   </Card>
 )
+
+type RepositoryIconProps = {
+  source: NonNullable<Project['repository']>['source']
+}
+
+function RepositoryIcon({ source }: RepositoryIconProps) {
+  let Icon: IconType | null = null
+  switch (source) {
+    case 'github':
+      Icon = SiGithub
+      break
+    case 'bitbucket':
+      Icon = SiBitbucket
+      break
+    case 'gitlab':
+      Icon = SiGitlab
+      break
+    default:
+      Icon = null
+  }
+  if (!Icon) return null
+  return <Icon className="h-4 w-4" />
+}

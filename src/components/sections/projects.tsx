@@ -10,7 +10,7 @@ export async function Projects() {
   const githubProjects = await fetchGithubProjects()
 
   // Merge static and dynamic projects
-  const projects = [...projectData, ...githubProjects]
+  const projects = [...githubProjects, ...projectData]
 
   return (
     <section id="projects" className="py-16 md:py-24">
@@ -51,10 +51,7 @@ async function fetchGithubProjects() {
             repo: repo.name,
           })
           // Merge override with fetched data
-          return {
-            ...githubRepoToProject(repo, { languages, primaryLanguage }),
-            ...override,
-          }
+          return githubRepoToProject(repo, { languages, primaryLanguage }, override)
         }),
       )
     }),
