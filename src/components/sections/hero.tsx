@@ -67,7 +67,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+    <section id="hero" className="pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
       <HeroBackground waveOptions={waveOptions} />
       <div className="container px-4 md:px-6 min-h-[40dvh] relative z-10">
         <article className="flex flex-col items-start gap-4">

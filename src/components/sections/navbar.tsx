@@ -2,12 +2,18 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme'
-import { cva } from 'class-variance-authority'
 import { Code2 } from 'lucide-react'
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerClose,
+  DrawerTitle,
+  DrawerHeader,
+} from '@/components/ui/drawer'
+import { Logo, NavItem, MobileDrawer } from '@/components/navbar'
 
 /**
  * Navigation item component
@@ -16,46 +22,25 @@ interface NavItemProps {
   href: string
   children: React.ReactNode
   className?: string
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-const navItemVariants = cva(
-  'text-muted-foreground hover:text-foreground transition-colors duration-200',
-  {
-    variants: {
-      active: {
-        true: 'text-foreground',
-        false: '',
-      },
-    },
-    defaultVariants: {
-      active: false,
-    },
-  },
-)
+type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void
 
-function NavItem({ href, children, className }: NavItemProps) {
-  const pathname = usePathname()
-  const isActive = pathname === href
-
-  return (
-    <Link
-      href={href}
-      className={cn(
-        navItemVariants({ active: isActive }),
-        'font-mono uppercase tracking-wide text-sm',
-        className,
-      )}
-    >
-      {children}
-    </Link>
-  )
-}
+// Navigation items array for reuse
+const NAV_ITEMS = [
+  { href: '#hero', label: 'Home' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Contact' },
+]
 
 /**
  * Main navigation component for the website
  */
 export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -64,12 +49,23 @@ export function Navbar() {
         setScrolled(isScrolled)
       }
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [scrolled])
+
+  // Smooth scroll handler
+  const handleNavClick: ClickHandler = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const el = document.querySelector(href)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setOpen(false)
+      }
+    }
+  }
 
   return (
     <header
@@ -80,41 +76,28 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between h-16 px-4 mx-auto sm:px-6">
         <div className="flex items-center gap-6 sm:gap-10">
-          <Link
-            href="/"
-            className="font-mono font-bold text-lg tracking-tighter flex flex-row items-center gap-2"
-          >
-            <Code2 />
-            dinghino
-          </Link>
+          <Logo />
           <nav className="hidden sm:flex items-center gap-6">
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="#projects">Projects</NavItem>
-            <NavItem href="#skills">Skills</NavItem>
-            <NavItem href="#contact">Contact</NavItem>
+            {NAV_ITEMS.map((item) => (
+              <NavItem
+                key={item.href}
+                href={item.href}
+                className="font-mono uppercase tracking-wide text-sm"
+                onClick={(e) => handleNavClick(e, item.href)}
+              >
+                {item.label}
+              </NavItem>
+            ))}
           </nav>
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button variant="ghost" size="sm" className="sm:hidden">
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </Button>
+          <MobileDrawer
+            onClick={handleNavClick}
+            open={open}
+            setOpen={setOpen}
+            navItems={NAV_ITEMS}
+          />
         </div>
       </div>
     </header>
