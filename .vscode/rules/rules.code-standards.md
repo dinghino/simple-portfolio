@@ -59,3 +59,4 @@
    - The `components/ui` folder is reserved for the shadcn component library and should only contain building blocks and atomic components. Do not add custom components here manually.
    - Use lowercase and dash-case for all file names, including components and data files.
    - All major folders (data, hooks, lib, lib/github, components/ui, types) must have an `index.ts` for barrel exports.
+   - to add new shadcn components use `pnpm dlx shadcn@latest add <component-name>` instead of manually writing it.
