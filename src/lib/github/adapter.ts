@@ -21,6 +21,7 @@ export function githubRepoToProject(
     lastUpdated: repo.updated_at,
     primaryLanguage: merge(opts?.primaryLanguage, overrides?.primaryLanguage),
     private: repo.private,
+    visitLabel: merge(overrides?.visitLabel, 'Visit'),
   } satisfies Project
 }
 
