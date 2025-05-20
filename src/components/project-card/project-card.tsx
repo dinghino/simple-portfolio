@@ -8,11 +8,15 @@ import type { Project } from '@/types'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface ProjectCardProps {
   project: Project
   className?: string
 }
+
+// Maximum number of technology badges to show before collapsing
+const MAX_TECH_BADGES = 3
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => (
   <Card
@@ -44,15 +48,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
         </Badge>
       )}
     </CardHeader>
-    <CardContent className="pt-2 flex-1 flex flex-col">
+    <CardContent className="pt-2 flex-1 flex flex-col gap-4">
       <p className="text-muted-foreground flex-1">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mt-4">
-        {(project.technologies || []).map((tech) => (
-          <Badge key={tech} className="text-xs font-mono" variant="background">
-            {tech}
-          </Badge>
-        ))}
-      </div>
+      <TechnologyBadges technologies={project.technologies || []} visible={MAX_TECH_BADGES} />
     </CardContent>
     <CardFooter className="flex justify-between pb-4">
       {project.repository && (
@@ -99,4 +97,40 @@ function RepositoryIcon({ source }: RepositoryIconProps) {
   }
   if (!Icon) return null
   return <Icon className="h-4 w-4" />
+}
+
+type TechnologyBadgesProps = {
+  technologies: string[]
+  visible?: number
+}
+
+function TechnologyBadges({ technologies, visible = 3 }: TechnologyBadgesProps) {
+  const displayedTechs = technologies.slice(0, visible)
+  return (
+    <div className="flex flex-wrap gap-2">
+      {displayedTechs.map((tech) => (
+        <Badge key={tech} className="text-xs font-mono" variant="background">
+          {tech}
+        </Badge>
+      ))}
+      {technologies.length > visible && (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Badge className="text-xs font-mono cursor-pointer select-none" variant="background">
+              +{technologies.length - visible} more
+            </Badge>
+          </TooltipTrigger>
+          <TooltipContent>
+            <div className="flex flex-wrap gap-1 max-w-xs">
+              {technologies.slice(visible).map((tech) => (
+                <Badge key={tech} className="text-xs font-mono">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </TooltipContent>
+        </Tooltip>
+      )}
+    </div>
+  )
 }
