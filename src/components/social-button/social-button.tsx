@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-import type { SocialIcon } from '@/data/contact'
+import type { SocialIcon } from '@/data/contact.data'
 
 const iconMap: Record<SocialIcon, React.ElementType> = {
   github: SiGithub,
@@ -33,7 +33,7 @@ export function SocialButton({ icon, url, name, variant = 'icon', className }: S
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={clsname}
+      className={cn(clsname, 'flex items-center gap-4')}
       aria-label={name}
     >
       {Icon && <Icon className={iconSize} />}

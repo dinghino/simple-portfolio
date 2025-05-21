@@ -1,4 +1,4 @@
-import { contactInfo, socials } from '@/data/contact'
+import { contactInfo, socials } from '@/data/contact.data'
 import { SocialButton } from '@/components/social-button/social-button'
 
 /**

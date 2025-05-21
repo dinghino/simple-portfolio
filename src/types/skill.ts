@@ -1,6 +1,4 @@
-import { iconNames } from 'lucide-react/dynamic'
-
-type IconName = typeof iconNames[number]
+import { IconName } from "lucide-react/dynamic"
 
 /**
  * Different categories of skills

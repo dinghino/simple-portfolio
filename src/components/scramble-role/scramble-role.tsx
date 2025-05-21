@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import { useGSAP, gsap } from '@/lib/gsap'
 import { cn } from '@/lib/utils'
 
-import { HERO_ROLES as ROLES } from '@/data/texts'
+import { HERO_ROLES as ROLES } from '@/data/texts.data'
 
 export default function ScrambleRole() {
   const roleRef = useRef<HTMLSpanElement>(null)

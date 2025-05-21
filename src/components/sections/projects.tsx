@@ -1,4 +1,4 @@
-import { projectData, githubRepositories } from '@/data/projects'
+import { projectData, githubRepositories } from '@/data/projects.data'
 import { api } from '@/lib/github'
 import { githubRepoToProject } from '@/lib/github/adapter'
 import ProjectsGrid from '@/components/projects-grid'
