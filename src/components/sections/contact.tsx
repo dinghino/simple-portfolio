@@ -1,13 +1,11 @@
-'use client'
-
 import { ContactForm } from '@/components/contact-form'
 import { SocialButton } from '@/components/social-button'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import SectionTitle from '@/components/section-title'
 
 import { contactInfo, socials } from '@/data/contact.data'
 
-export function Contact() {
+export async function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
@@ -20,9 +18,7 @@ export function Contact() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <Card className="p-4 bg-muted/30 shadow-none border-xs">
-            {/* <CardContent> */}
             <ContactForm />
-            {/* </CardContent> */}
           </Card>
           <div className="flex flex-col gap-8">
             <div>

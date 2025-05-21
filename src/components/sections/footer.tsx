@@ -1,10 +1,10 @@
-import { contactInfo, socials } from '@/data/contact.data'
+import { socials } from '@/data/contact.data'
 import { SocialButton } from '@/components/social-button/social-button'
 
 /**
  * Footer component displaying social links and copyright information
  */
-export function Footer() {
+export async function Footer() {
   return (
     <footer className="border-t py-6 md:py-8">
       <div className="container px-4 md:px-6">
