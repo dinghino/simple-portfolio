@@ -1,19 +1,10 @@
 'use client'
 
-import * as React from 'react'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme'
-import { Code2 } from 'lucide-react'
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerClose,
-  DrawerTitle,
-  DrawerHeader,
-} from '@/components/ui/drawer'
+
 import { Logo, NavItem, MobileDrawer } from '@/components/navbar'
+import { useState, useEffect } from 'react'
 
 /**
  * Navigation item component
@@ -30,6 +21,7 @@ type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => vo
 // Navigation items array for reuse
 const NAV_ITEMS = [
   { href: '#hero', label: 'Home' },
+  { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },
@@ -39,10 +31,10 @@ const NAV_ITEMS = [
  * Main navigation component for the website
  */
 export function Navbar() {
-  const [scrolled, setScrolled] = React.useState(false)
-  const [open, setOpen] = React.useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10
       if (isScrolled !== scrolled) {

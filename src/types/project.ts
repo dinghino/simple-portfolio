@@ -9,13 +9,18 @@ export interface Project {
   image?: string
   technologies: string[]
   repository?: Repository
-  demoUrl?: string
+  homepage?: string
   featured: boolean
   stars?: number
   lastUpdated?: string | null
   primaryLanguage?: Language
   visitLabel?: string
   private?: boolean
+  group?: 'work' | 'personal' | 'experiments' | 'oss'
+  /**
+   * True if this project is a fork of another repository (OSS contributions, etc.)
+   */
+  forked?: boolean
 }
 
 export type GithubRepository =
@@ -30,3 +35,5 @@ export type Repository = {
   url: string
   source: 'github' | 'bitbucket' | 'gitlab'
 }
+
+export type ProjectGroup = NonNullable<Project['group']>

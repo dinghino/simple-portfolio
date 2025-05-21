@@ -1,7 +1,7 @@
 import { projectData, githubRepositories } from '@/data/projects.data'
 import { api } from '@/lib/github'
 import { githubRepoToProject } from '@/lib/github/adapter'
-import ProjectsGrid from '@/components/projects-grid'
+import { ProjectsTabs } from '@/components/projects-tabs'
 import SectionTitle from '@/components/section-title'
 import type { Project } from '@/types/project'
 
@@ -10,7 +10,10 @@ export async function Projects() {
   const githubProjects = await fetchGithubProjects()
 
   // Merge static and dynamic projects
-  const projects = [...githubProjects, ...projectData]
+  const projects = [
+    ...githubProjects,
+    // ...projectData
+  ]
 
   return (
     <section id="projects" className="py-16 md:py-24">
@@ -21,7 +24,7 @@ export async function Projects() {
             Some personal and work projects, experiments and side things.
           </p>
         </div>
-        <ProjectsGrid projects={projects} />
+        <ProjectsTabs projects={projects} />
       </div>
     </section>
   )

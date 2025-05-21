@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
-import { ExternalLink, Lock } from 'lucide-react'
+import { ExternalLink, Lock, GitFork } from 'lucide-react'
+import { DynamicIcon, IconName } from 'lucide-react/dynamic'
 import { IconType, SiBitbucket, SiGithub, SiGitlab } from '@icons-pack/react-simple-icons'
 import { cn } from '@/lib/utils'
 
@@ -9,6 +12,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import React, { useEffect } from 'react'
 
 interface ProjectCardProps {
   project: Project
@@ -19,12 +23,18 @@ interface ProjectCardProps {
 const MAX_TECH_BADGES = 3
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
-  const showFooter = project.repository || project.demoUrl
+  useEffect(() => {
+    console.log('ProjectCard mounted:', project.title)
+    return () => {
+      console.log('ProjectCard unmounted:', project.title)
+    }
+  }, [project.title])
   return (
     <Card
       as="article"
       className={cn(
-        'bg-muted/50 transition-all duration-300 hover:bg-muted/70 flex flex-col rounded-xs shadow-none border-muted/50',
+        'bg-muted/50 hover:bg-muted/70 flex flex-col rounded-sm shadow-none border-muted/50',
+        'transition-all duration-300',
         className,
       )}
     >
@@ -32,11 +42,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
         <div className="w-full flex flex-row justify-between items-center">
           <CardTitle className="font-mono text-xl flex-1 flex items-center justify-between gap-2">
             {project.title}
-            {project.private && (
-              <span className="inline-flex items-center" aria-label="Private repository">
-                <Lock className="h-4 w-4 text-muted-foreground opacity-60" />
-              </span>
-            )}
           </CardTitle>
         </div>
         {project.primaryLanguage && (
@@ -55,12 +60,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
         <p className="text-muted-foreground flex-1 text-sm">{project.description}</p>
         <TechnologyBadges technologies={project.technologies || []} visible={MAX_TECH_BADGES} />
       </CardContent>
-      {showFooter && (
-        <CardFooter className="flex justify-end pb-4 gap-2" data-role="footer">
+      <CardFooter className="flex justify-between pb-4 gap-2" data-role="footer">
+        <div className="flex flex-row justify-start gap-2">
+          {project.private && <InfoIcon name="lock" label="Private repository" />}
+          {project.forked && <InfoIcon name="git-fork" label="Forked repository" />}
+        </div>
+        <div className="flex flex-row justify-end gap-2">
           {project.repository && (
             <Button variant="outline" size="icon" className="gap-1" asChild>
               <Link
-                // TODO: not an issue for now but we should handle non github repositories
+                // todo: not an issue for now but we should handle non github repositories
                 href={`https://github.com/${project.repository.url}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -69,16 +78,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
               </Link>
             </Button>
           )}
-          {project.demoUrl && (
+          {project.homepage && (
             <Button variant="outline" size="icon" className="gap-1" asChild>
-              <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                {/* <span>{project.visitLabel ?? 'View Demo'}</span> */}
+              <Link href={project.homepage} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
               </Link>
             </Button>
           )}
-        </CardFooter>
-      )}
+        </div>
+      </CardFooter>
     </Card>
   )
 }
@@ -87,7 +95,7 @@ type RepositoryIconProps = {
   source: NonNullable<Project['repository']>['source']
 }
 
-function RepositoryIcon({ source }: RepositoryIconProps) {
+const RepositoryIcon: React.FC<RepositoryIconProps> = ({ source }) => {
   let Icon: IconType | null = null
   switch (source) {
     case 'github':
@@ -111,7 +119,7 @@ type TechnologyBadgesProps = {
   visible?: number
 }
 
-function TechnologyBadges({ technologies, visible = 3 }: TechnologyBadgesProps) {
+const TechnologyBadges: React.FC<TechnologyBadgesProps> = ({ technologies, visible = 3 }) => {
   const displayedTechs = technologies.slice(0, visible)
   return (
     <div className="flex flex-wrap gap-2">
@@ -141,3 +149,24 @@ function TechnologyBadges({ technologies, visible = 3 }: TechnologyBadgesProps) 
     </div>
   )
 }
+
+type InfoIconProps = {
+  className?: string
+  name: IconName
+  label: string
+}
+
+const InfoIcon: React.FC<InfoIconProps> = ({ className, name, label }) => (
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <DynamicIcon
+        name={name}
+        aria-label={label}
+        className={cn('h-4 w-4 text-muted-foreground opacity-60', className)}
+      />
+    </TooltipTrigger>
+    <TooltipContent>
+      <span className="text-xs font-mono">{label}</span>
+    </TooltipContent>
+  </Tooltip>
+)

@@ -8,26 +8,69 @@ export const githubRepositories: Record<string, Partial<Project>> = {
   'dinghino/budgeting-app': {
     title: 'Budgeting App',
     description:
-    'A work in progress personal budgeting application that helps users track their finances, tasks and more.',
+      'A work in progress personal budgeting application that helps users track their finances, tasks and more.',
     technologies: ['turborepo', 'Next.js', 'fastify', 'PostgreSQL'],
+    group: 'personal',
   },
-  'dinghino/simple-portfolio':{
+  'dinghino/simple-portfolio': {
     title: 'Personal website',
     description: 'The source of this very own website',
     technologies: ['Next.js', 'gsap', 'Tailwind', 'shadcn/ui', 'Copilot'],
-
+    group: 'personal',
   },
   'dinghino/tictoc': {
     description: 'A simple C++ timer library to handle timeouts and intervals for IoT development.',
+    group: 'oss',
   },
   'dinghino/stocks-historical-data': {
     title: 'stonks-o-fetcher',
     description:
       'Modular and extensible tool to fetch stocks historical data, FTD and more from various sources.',
-    
+    group: 'oss',
   },
   'dinghino/logica-international': {
+    title: 'Logìca International',
+    description:
+      'Logìca is an import-export company based in the US and South America, specializing in produces and food.',
     visitLabel: 'Visit',
+    group: 'work',
+  },
+  'dinghino/ojedis-logistics': {
+    visitLabel: 'Visit',
+    title: 'Ojedis Logistics',
+    description:
+      'Website for Ojedis logistics company, a logistics and transportation company based in NYC.',
+    group: 'work',
+  },
+  'dinghino/tenfe-cafe': {
+    title: 'PayloadCMS website',
+    description:
+      'Website for tenfe cafe built with PayloadCMS. Used as a base and demo to customize Payload.',
+    technologies: ['Next.js', 'PayloadCMS', 'Tailwind'],
+    visitLabel: 'Visit',
+    group: 'work',
+  },
+  'dinghino/hhhq-forms': {
+    title: 'H3Q Website',
+    homepage: 'https://h3q.io',
+    description: 'Landing page and contact funnel for H3Q inc. My parent company.',
+    technologies: ['Next.js', 'mantine', 'framer-motion'],
+    group: 'work',
+  },
+  'dinghino/hhhq-spaceship': {
+    title: 'Spaceship simulator',
+    description: 'Prototype for a metaversespaceship simulator for H3Q inc.',
+    technologies: ['Next.js', 'three.js', 'mantine', 'xstate'],
+    group: 'work',
+  },
+  'dinghino/xstate-game-state': {
+    title: 'Game State machine',
+    description: 'A simple game state machine using xstate',
+    technologies: ['xstate', 'React', 'TypeScript'],
+    group: 'oss',
+  },
+  'dinghino/homarr': {
+    group: 'oss',
   },
 }
 
@@ -44,6 +87,7 @@ export const projectData: Project[] = [
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     featured: true,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    group: 'work',
   },
   {
     id: '2',
@@ -52,6 +96,7 @@ export const projectData: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     featured: true,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    group: 'personal',
   },
   {
     id: '3',
@@ -61,6 +106,7 @@ export const projectData: Project[] = [
     technologies: ['React', 'Redux', 'Firebase'],
     featured: true,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    group: 'work',
   },
   {
     id: '4',
@@ -70,6 +116,7 @@ export const projectData: Project[] = [
     technologies: ['JavaScript', 'OpenWeather API', 'Chart.js'],
     featured: false,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    group: 'experiments',
   },
   {
     id: '5',
@@ -78,6 +125,7 @@ export const projectData: Project[] = [
     technologies: ['Next.js', 'Prisma', 'PostgreSQL'],
     featured: false,
     primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+    group: 'personal',
   },
   {
     id: '6',
@@ -86,5 +134,6 @@ export const projectData: Project[] = [
     technologies: ['Socket.io', 'Express', 'MongoDB'],
     featured: true,
     primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
+    group: 'oss',
   },
 ]

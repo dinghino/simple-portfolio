@@ -15,13 +15,15 @@ export function githubRepoToProject(
       url: merge(repo.full_name, overrides?.repository?.url),
       source: 'github',
     },
-    demoUrl: merge(repo.homepage || '', overrides?.demoUrl),
+    homepage: merge(repo.homepage || '', overrides?.homepage),
     featured: false,
     stars: repo.stargazers_count,
     lastUpdated: repo.updated_at,
     primaryLanguage: merge(opts?.primaryLanguage, overrides?.primaryLanguage),
     private: repo.private,
     visitLabel: merge(overrides?.visitLabel, 'Visit'),
+    group: merge(overrides?.group, undefined),
+    forked: repo.fork,
   } satisfies Project
 }
 
