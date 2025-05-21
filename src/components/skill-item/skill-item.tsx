@@ -1,20 +1,49 @@
-import { FC } from "react";
+import { cva } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
+import type { Skill } from '@/types'
+import { DynamicIcon } from 'lucide-react/dynamic'
+import Link from 'next/link'
 
 interface SkillItemProps {
-  name: string;
-  icon?: React.ReactNode;
-  link?: string;
+  skill: Skill
+  link?: string
+  className?: string
 }
 
-export const SkillItem: FC<SkillItemProps> = ({ name, icon, link }) => (
-  <div className="flex items-center gap-2">
-    {icon && <span className="text-xl">{icon}</span>}
+const skillItemVariants = cva(
+  'flex items-center px-4 py-2 border-0 text-sm bg-muted/40 hover:bg-muted/60 transition-colors duration-200 gap-2',
+  {
+    variants: {
+      proficiency: {
+        beginner: 'text-muted-foreground/10',
+        intermediate: 'text-foreground/50',
+        advanced: 'text-primary font-medium',
+        expert: 'text-primary font-bold',
+      },
+    },
+    defaultVariants: {
+      proficiency: 'intermediate',
+    },
+  },
+)
+
+export const SkillItem: React.FC<SkillItemProps> = ({
+  skill: { name, icon, proficiency },
+  link,
+  className,
+}) => (
+  <div className={cn(skillItemVariants({ proficiency }), className)}>
+    {icon && (
+      <span className="text-xl">
+        <DynamicIcon name={icon} className="h-5 w-5 mr-2 shrink-0" />
+      </span>
+    )}
     {link ? (
-      <a href={link} target="_blank" rel="noopener noreferrer" className="underline">
+      <Link href={link} target="_blank" rel="noopener noreferrer" className="underline">
         {name}
-      </a>
+      </Link>
     ) : (
       <span>{name}</span>
     )}
   </div>
-);
+)

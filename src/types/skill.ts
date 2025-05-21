@@ -1,4 +1,6 @@
-import { LucideIcon } from 'lucide-react'
+import { iconNames } from 'lucide-react/dynamic'
+
+type IconName = typeof iconNames[number]
 
 /**
  * Different categories of skills
@@ -16,12 +18,10 @@ export type SkillProficiency = 'beginner' | 'intermediate' | 'advanced' | 'exper
 export interface Skill {
   name: string
   proficiency: SkillProficiency
-  icon?: LucideIcon
+  icon?: IconName
 }
 
 /**
- * Interface for skills data by category
+ * Skills data structure
  */
-export interface SkillsData {
-  [category: string]: Skill[]
-}
+export type SkillsData = Partial<Record<SkillCategory, Skill[]>>

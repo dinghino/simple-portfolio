@@ -1,17 +1,58 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { useGSAP, gsap } from '@/lib/gsap'
 import { cn } from '@/lib/utils'
-import type { Skill } from '@/types/skill'
+import type { Skill, SkillCategory, SkillsData } from '@/types/skill'
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { SkillItem } from '@/components/skill-item'
 
 interface SkillsGridProps {
-  skills: Skill[]
+  skills: SkillsData
   className?: string
-  renderSkill: (skill: Skill) => React.ReactNode
 }
 
-export default function SkillsGrid({ skills, className, renderSkill }: SkillsGridProps) {
+export default function SkillsGrid({ skills, className }: SkillsGridProps) {
+  const initial = useMemo(() => Object.keys(skills)[0] as SkillCategory, [skills])
+  const [selectedCategory, setSelectedCategory] = useState<SkillCategory>(initial)
+  return (
+    <Tabs
+      defaultValue={initial}
+      value={selectedCategory}
+      onValueChange={(value) => setSelectedCategory(value as SkillCategory)}
+      className={cn('w-full', className)}
+    >
+      <TabsList className="mb-8 font-mono bg-transparent border-b w-full justify-start rounded-none h-auto p-0">
+        {Object.keys(skills).map((category) => (
+          <TabsTrigger
+            key={category}
+            value={category}
+            className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none cursor-pointer"
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {Object.entries(skills).map(([category, skills]) => (
+        <TabContent
+          key={category}
+          selected={selectedCategory}
+          category={category}
+          skills={skills}
+        />
+      ))}
+    </Tabs>
+  )
+}
+
+type TabContentProps = {
+  category: SkillCategory | (string & {})
+  skills: Skill[]
+  selected: SkillCategory | (string & {})
+}
+
+const TabContent: React.FC<TabContentProps> = ({ selected, category, skills }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
@@ -20,11 +61,11 @@ export default function SkillsGrid({ skills, className, renderSkill }: SkillsGri
     if (items.length) {
       gsap.fromTo(
         items,
-        { opacity: 0, scale: 0.8 },
+        { opacity: 0, scale: 0.5 },
         {
           opacity: 1,
           scale: 1,
-          duration: 0.125,
+          duration: 0.25,
           stagger: 0.08,
           ease: 'power3.out',
           scrollTrigger: {
@@ -34,18 +75,24 @@ export default function SkillsGrid({ skills, className, renderSkill }: SkillsGri
         },
       )
     }
-  }, [skills])
+  }, [selected, category, skills])
+
+  // forces full re-render and animation
+  if (category !== selected) {
+    return null
+  }
 
   return (
-    <div
-      ref={containerRef}
-      className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4', className)}
-    >
-      {skills.map((skill) => (
-        <div key={skill.name} className="skill-animate">
-          {renderSkill(skill)}
-        </div>
-      ))}
-    </div>
+    <TabsContent key={category} value={category} className="mt-0">
+      <div
+        key={category}
+        ref={category === category ? containerRef : undefined}
+        className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2')}
+      >
+        {skills.map((skill) => (
+          <SkillItem skill={skill} className="skill-animate" key={skill.name} />
+        ))}
+      </div>
+    </TabsContent>
   )
 }
