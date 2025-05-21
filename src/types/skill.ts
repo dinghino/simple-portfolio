@@ -22,4 +22,4 @@ export interface Skill {
 /**
  * Skills data structure
  */
-export type SkillsData = Partial<Record<SkillCategory, Skill[]>>
+export type SkillsData = Record<SkillCategory, Skill[]>

@@ -15,9 +15,9 @@ const skillItemVariants = cva(
   {
     variants: {
       proficiency: {
-        beginner: 'text-muted-foreground/10',
+        beginner: 'text-muted-foreground/25',
         intermediate: 'text-foreground/50',
-        advanced: 'text-primary font-medium',
+        advanced: 'text-primary/75 font-medium',
         expert: 'text-primary font-bold',
       },
     },

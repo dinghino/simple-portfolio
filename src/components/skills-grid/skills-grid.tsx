@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useMemo, useRef, useState } from 'react'
-import { useGSAP, gsap } from '@/lib/gsap'
 import { cn } from '@/lib/utils'
 import type { Skill, SkillCategory, SkillsData } from '@/types/skill'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { SkillItem } from '@/components/skill-item'
+import { useStaggerAnimation } from '@/hooks/use-stagger-animation'
 
 interface SkillsGridProps {
   skills: SkillsData
@@ -55,27 +55,17 @@ type TabContentProps = {
 const TabContent: React.FC<TabContentProps> = ({ selected, category, skills }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useGSAP(() => {
-    if (!containerRef.current) return
-    const items = containerRef.current.querySelectorAll('.skill-animate')
-    if (items.length) {
-      gsap.fromTo(
-        items,
-        { opacity: 0, scale: 0.5 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.25,
-          stagger: 0.08,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 75%',
-          },
-        },
-      )
-    }
-  }, [selected, category, skills])
+  useStaggerAnimation(
+    {
+      containerRef,
+      selector: '.skill-animate',
+      from: { opacity: 0, scale: 0.5 },
+      to: { opacity: 1, scale: 1 },
+      delay: 0.04,
+      duration: 0.05,
+    },
+    [selected, category, skills],
+  )
 
   // forces full re-render and animation
   if (category !== selected) {
