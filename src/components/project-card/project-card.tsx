@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils'
 import type { Project } from '@/types'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface ProjectCardProps {
   project: Project
@@ -18,63 +18,70 @@ interface ProjectCardProps {
 // Maximum number of technology badges to show before collapsing
 const MAX_TECH_BADGES = 3
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => (
-  <Card
-    className={cn(
-      'bg-muted/50 transition-all duration-300 hover:bg-muted/70 flex flex-col rounded-xs shadow-none border-muted/50',
-      className,
-    )}
-  >
-    <CardHeader className="flex flex-col items-start gap-1 pb-2">
-      <div className="w-full flex flex-row justify-between items-center">
-        <CardTitle className="font-mono text-xl flex-1 flex items-center justify-between gap-2">
-          {project.title}
-          {project.private && (
-            <span className="inline-flex items-center" aria-label="Private repository">
-              <Lock className="h-4 w-4 text-muted-foreground opacity-60" />
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
+  const showFooter = project.repository || project.demoUrl
+  return (
+    <Card
+      as="article"
+      className={cn(
+        'bg-muted/50 transition-all duration-300 hover:bg-muted/70 flex flex-col rounded-xs shadow-none border-muted/50',
+        className,
+      )}
+    >
+      <CardHeader className="flex flex-col items-start gap-1 pb-2" data-role="header">
+        <div className="w-full flex flex-row justify-between items-center">
+          <CardTitle className="font-mono text-xl flex-1 flex items-center justify-between gap-2">
+            {project.title}
+            {project.private && (
+              <span className="inline-flex items-center" aria-label="Private repository">
+                <Lock className="h-4 w-4 text-muted-foreground opacity-60" />
+              </span>
+            )}
+          </CardTitle>
+        </div>
+        {project.primaryLanguage && (
+          <Badge variant="outline">
+            <span
+              className="inline-block w-2.5 h-2.5 rounded-full mr-1"
+              style={{ backgroundColor: project.primaryLanguage.color || '#888' }}
+            />
+            <span className="text-xs font-mono text-muted-foreground">
+              {project.primaryLanguage.name}
             </span>
+          </Badge>
+        )}
+      </CardHeader>
+      <CardContent className="pt-2 flex-1 flex flex-col gap-6" data-role="content">
+        <p className="text-muted-foreground flex-1 text-sm">{project.description}</p>
+        <TechnologyBadges technologies={project.technologies || []} visible={MAX_TECH_BADGES} />
+      </CardContent>
+      {showFooter && (
+        <CardFooter className="flex justify-end pb-4 gap-2" data-role="footer">
+          {project.repository && (
+            <Button variant="outline" size="icon" className="gap-1" asChild>
+              <Link
+                // TODO: not an issue for now but we should handle non github repositories
+                href={`https://github.com/${project.repository.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RepositoryIcon source={project.repository.source} />
+              </Link>
+            </Button>
           )}
-        </CardTitle>
-      </div>
-      {project.primaryLanguage && (
-        <Badge variant="outline">
-          <span
-            className="inline-block w-2.5 h-2.5 rounded-full mr-1"
-            style={{ backgroundColor: project.primaryLanguage.color || '#888' }}
-          />
-          <span className="text-xs font-mono text-muted-foreground">
-            {project.primaryLanguage.name}
-          </span>
-        </Badge>
+          {project.demoUrl && (
+            <Button variant="outline" size="icon" className="gap-1" asChild>
+              <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                {/* <span>{project.visitLabel ?? 'View Demo'}</span> */}
+                <ExternalLink className="h-4 w-4" />
+              </Link>
+            </Button>
+          )}
+        </CardFooter>
       )}
-    </CardHeader>
-    <CardContent className="pt-2 flex-1 flex flex-col gap-4">
-      <p className="text-muted-foreground flex-1">{project.description}</p>
-      <TechnologyBadges technologies={project.technologies || []} visible={MAX_TECH_BADGES} />
-    </CardContent>
-    <CardFooter className="flex justify-between pb-4">
-      {project.repository && (
-        <Button variant="secondary" size="icon" className="gap-1" asChild>
-          <Link
-            href={`https://github.com/${project.repository.url}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RepositoryIcon source={project.repository.source} />
-          </Link>
-        </Button>
-      )}
-      {project.demoUrl && (
-        <Button variant="outline" size="sm" className="gap-1" asChild>
-          <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-            <span>{project.visitLabel ?? 'View Demo'}</span>
-            <ExternalLink className="h-4 w-4" />
-          </Link>
-        </Button>
-      )}
-    </CardFooter>
-  </Card>
-)
+    </Card>
+  )
+}
 
 type RepositoryIconProps = {
   source: NonNullable<Project['repository']>['source']
