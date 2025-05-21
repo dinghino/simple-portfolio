@@ -21,7 +21,8 @@ export async function Projects() {
         <div className="flex flex-col items-start gap-4 mb-12">
           <SectionTitle>Featured Projects</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">
-            Some personal and work projects, experiments and side things.
+            A short collection of work, personal projects and open source contributions that I can share.
+
           </p>
         </div>
         <ProjectsTabs projects={projects} />

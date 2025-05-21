@@ -22,12 +22,12 @@ const backend: Skill[] = [
   { name: 'PostgreSQL', proficiency: 'intermediate', icon: 'database' },
   { name: 'MongoDB', proficiency: 'advanced', icon: 'database' },
   { name: 'GraphQL (Server)', proficiency: 'beginner', icon: 'database' },
-  { name: 'RESTful APIs', proficiency: 'expert', icon: 'globe' },
+  { name: 'RESTful APIs', proficiency: 'advanced', icon: 'globe' },
   { name: 'Firebase', proficiency: 'intermediate', icon: 'database' },
   { name: 'AWS', proficiency: 'beginner', icon: 'server' },
 ]
 const design: Skill[] = [
-  { name: 'Figma', proficiency: 'advanced', icon: 'pen-tool' },
+  { name: 'Figma', proficiency: 'intermediate', icon: 'pen-tool' },
   { name: 'UX Design', proficiency: 'intermediate', icon: 'layout' },
   { name: 'Wireframing', proficiency: 'advanced', icon: 'pen-tool' },
   { name: 'Prototyping', proficiency: 'advanced', icon: 'layers' },
@@ -35,16 +35,12 @@ const design: Skill[] = [
   { name: 'Color Theory', proficiency: 'intermediate', icon: 'pen-tool' },
 ]
 const tools: Skill[] = [
-  { name: 'Git', proficiency: 'expert', icon: 'terminal' },
-  { name: 'GitHub', proficiency: 'expert', icon: 'code' },
   { name: 'VS Code', proficiency: 'expert', icon: 'code' },
+  { name: 'Git', proficiency: 'advanced', icon: 'terminal' },
+  { name: 'GitHub', proficiency: 'expert', icon: 'code' },
   { name: 'Docker', proficiency: 'intermediate', icon: 'settings' },
-  { name: 'Jest', proficiency: 'advanced', icon: 'terminal' },
   { name: 'CI/CD', proficiency: 'intermediate', icon: 'settings' },
-  { name: 'Webpack', proficiency: 'intermediate', icon: 'settings' },
-  { name: 'Vite', proficiency: 'advanced', icon: 'settings' },
-  { name: 'npm/yarn/pnpm', proficiency: 'expert', icon: 'settings' },
-  { name: 'Postman', proficiency: 'advanced', icon: 'settings' },
+  { name: 'Vite', proficiency: 'intermediate', icon: 'settings' },
 ]
 export const skillsData: SkillsData = {
   frontend: frontend.sort(byProficiencies),
