@@ -50,8 +50,13 @@ async function fetchGithubProjects() {
             user: repo.owner.login,
             repo: repo.name,
           })
+          const lastCommit = await api.fetchLastCommit({
+            user: repo.owner.login,
+            repo: repo.name,
+            branch: repo.default_branch,
+          })
           // Merge override with fetched data
-          return githubRepoToProject(repo, { languages, primaryLanguage }, override)
+          return githubRepoToProject(repo, { languages, primaryLanguage, lastCommit }, override)
         }),
       )
     }),

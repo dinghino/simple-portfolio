@@ -29,4 +29,10 @@ export type Language = {
 export type Repository = {
   url: string
   source: 'github' | 'bitbucket' | 'gitlab'
+  lastCommit?: {
+    message: string
+    author: string
+    date: string
+    branch?: string
+  }
 }

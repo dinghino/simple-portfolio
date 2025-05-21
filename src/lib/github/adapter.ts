@@ -1,20 +1,29 @@
 import type { GithubRepository, Language, Project } from '@/types/project'
 
+export type GithubRepoToProjectOptions = {
+  languages?: string[]
+  primaryLanguage?: { name: string; color?: string }
+  lastCommit?: { message: string; author: string; date: string } | null
+}
+
 export function githubRepoToProject(
   repo: GithubRepository,
-  opts?: { languages?: string[]; primaryLanguage?: { name: string; color?: string } },
+  opts?: GithubRepoToProjectOptions,
   overrides?: Partial<Project>,
 ): Project {
+  const repoData: Project['repository'] = {
+    url: repo.html_url,
+    source: 'github',
+    lastCommit: opts?.lastCommit ?? undefined,
+  }
+
   return {
     id: repo.id.toString(),
     title: merge(repo.name, overrides?.title),
     description: merge(repo.description || '', overrides?.description),
     image: undefined,
     technologies: merge(opts?.languages || [], overrides?.technologies),
-    repository: {
-      url: merge(repo.full_name, overrides?.repository?.url),
-      source: 'github',
-    },
+    repository: repoData,
     demoUrl: merge(repo.homepage || '', overrides?.demoUrl),
     featured: false,
     stars: repo.stargazers_count,
