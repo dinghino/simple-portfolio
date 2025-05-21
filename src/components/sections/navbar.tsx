@@ -22,8 +22,8 @@ type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => vo
 const NAV_ITEMS = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
 
