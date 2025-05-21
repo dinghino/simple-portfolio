@@ -40,7 +40,7 @@ export function About() {
           <SectionTitle>About Me</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">And my partner in crime</p>
         </div>
-        <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-16">
+        <div className="flex flex-col-reverse lg:flex-row items-center md:items-start gap-16">
           <div
             className="flex-shrink-0 cursor-pointer transition-transform duration-300 will-change-transform"
             style={{ perspective: 800 }}
@@ -54,30 +54,20 @@ export function About() {
               priority
             />
           </div>
-          <div className="flex-1 flex flex-col items-start gap-6 text-muted-foreground max-w-2xl text-lg">
+          <div className="flex-1 flex flex-col items-start gap-6 font-mono text-muted-foreground max-w-2xl">
             <p>
-              Hi, I'm <span className="font-bold text-primary">Daniele</span> — a self-taught
-              developer who found their way into tech from a completely different world. My
-              background is in other industries, but curiosity and a love for building things led me
-              here.
+              I've been working as a full time developer for more than 10 years and for over 20
+              years between other realities and industries. My background in surveying and security
+              has given me a unique perspective on problem-solving and project management.
             </p>
             <p>
-              I've worked with people and companies on all sorts of projects, learning by doing and
-              picking up new skills along the way. I value practical experience, creative
-              problem-solving, and the freedom to experiment.
+              I like finding and solving problems, optimizing processes and creating new things,
+              using the toolset that I grow whenever possible, exploring the ever growing pool of
+              new technologies that comes out every week.
             </p>
             <p>
-              When I'm not coding, I'm probably hanging out with my dog, exploring, playing games or
-              getting lost in a new hobby. I'm not big on social media or putting my face everywhere
-              — but my dog doesn't mind the spotlight!
-            </p>
-            <p>
-              <span className="font-mono text-primary">
-                <Link href="#contact" className="font-bold">
-                  Let's connect
-                </Link>{' '}
-                and create something cool together!
-              </span>
+              When I am not working I like to spend time learning new things, playing games and most
+              importantly spending time with my pet companion.
             </p>
           </div>
         </div>
