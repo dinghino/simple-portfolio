@@ -46,12 +46,9 @@ export function ContactForm() {
         })
         form.reset()
       } else {
-        toast.error(
-          result.error || 'Failed to send message. Please try again later.',
-          {
-            description: 'Error',
-          }
-        )
+        toast.error(result.error || 'Failed to send message. Please try again later.', {
+          description: 'Error',
+        })
       }
     } catch (e) {
       toast.error('Failed to send message. Please try again later.', {
@@ -71,7 +68,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel className="font-mono">Name</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input placeholder="Your name" autoComplete="name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,7 +81,12 @@ export function ContactForm() {
             <FormItem>
               <FormLabel className="font-mono">Email</FormLabel>
               <FormControl>
-                <Input placeholder="your.email@example.com" type="email" {...field} />
+                <Input
+                  placeholder="your.email@example.com"
+                  type="email"
+                  autoComplete="email"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
