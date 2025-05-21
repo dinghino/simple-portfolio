@@ -2,7 +2,7 @@ import { githubRepositories } from '@/data/projects.data'
 import { api } from '@/lib/github'
 import { githubRepoToProject } from '@/lib/github/adapter'
 import { ProjectsTabs } from '@/components/projects'
-import SectionTitle from '@/components/section-title'
+import { Section } from '@/components/section'
 import type { Project } from '@/types/project'
 
 export async function Projects() {
@@ -10,18 +10,14 @@ export async function Projects() {
   const projects = await fetchGithubProjects()
 
   return (
-    <section id="projects" className="py-16 md:py-24">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-start gap-4 mb-12">
-          <SectionTitle>Featured Projects</SectionTitle>
-          <p className="text-muted-foreground max-w-2xl">
-            A short collection of work, personal projects and open source contributions that I can
-            share.
-          </p>
-        </div>
-        <ProjectsTabs projects={projects} />
-      </div>
-    </section>
+    <Section
+      id="projects"
+      title="Featured Projects"
+      subtitle="A short collection of work, personal projects and open source contributions that I can share."
+      background="default"
+    >
+      <ProjectsTabs projects={projects} />
+    </Section>
   )
 }
 

@@ -6,7 +6,7 @@ import { SocialButton } from '@/components/social-button/social-button'
  */
 export async function Footer() {
   return (
-    <footer className="border-t py-6 md:py-8">
+    <footer className="py-6 md:py-8">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
