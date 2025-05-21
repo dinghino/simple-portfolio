@@ -1,14 +1,13 @@
 import { ContactForm } from '@/components/contact-form'
-import { SocialButton } from '@/components/social-button'
 import { Card } from '@/components/ui/card'
 import SectionTitle from '@/components/section-title'
 
-import { contactInfo, socials } from '@/data/contact.data'
+import { contactInfo } from '@/data/contact.data'
 
 export async function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24">
-      <div className="container px-4 md:px-6">
+      <article   className="container px-4 md:px-6">
         <div className="flex flex-col items-start gap-4 mb-12">
           <SectionTitle>Get in Touch</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">
@@ -39,26 +38,9 @@ export async function Contact() {
                 </p>
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-mono font-bold mb-4">Connect</h3>
-              <p className="text-muted-foreground mb-4">
-                Follow me on social media or check out my work on GitHub.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {socials.map((social) => (
-                  <SocialButton
-                    key={social.name}
-                    icon={social.icon}
-                    url={social.url}
-                    name={social.name}
-                    variant="text"
-                  />
-                ))}
-              </div>
-            </div>
           </div>
         </div>
-      </div>
+      </article>
     </section>
   )
 }
