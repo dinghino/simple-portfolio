@@ -1,19 +1,13 @@
-import { projectData, githubRepositories } from '@/data/projects.data'
+import { githubRepositories } from '@/data/projects.data'
 import { api } from '@/lib/github'
 import { githubRepoToProject } from '@/lib/github/adapter'
-import { ProjectsTabs } from '@/components/projects-tabs'
+import { ProjectsTabs } from '@/components/projects'
 import SectionTitle from '@/components/section-title'
 import type { Project } from '@/types/project'
 
 export async function Projects() {
   // Fetch GitHub projects
-  const githubProjects = await fetchGithubProjects()
-
-  // Merge static and dynamic projects
-  const projects = [
-    ...githubProjects,
-    // ...projectData
-  ]
+  const projects = await fetchGithubProjects()
 
   return (
     <section id="projects" className="py-16 md:py-24">
@@ -21,8 +15,8 @@ export async function Projects() {
         <div className="flex flex-col items-start gap-4 mb-12">
           <SectionTitle>Featured Projects</SectionTitle>
           <p className="text-muted-foreground max-w-2xl">
-            A short collection of work, personal projects and open source contributions that I can share.
-
+            A short collection of work, personal projects and open source contributions that I can
+            share.
           </p>
         </div>
         <ProjectsTabs projects={projects} />

@@ -1,6 +1,6 @@
 import { skillsData } from '@/data/skills.data'
 import SectionTitle from '@/components/section-title'
-import SkillsGrid from '@/components/skills-grid'
+import { SkillsGrid } from '@/components/skills'
 
 export async function Skills() {
   return (

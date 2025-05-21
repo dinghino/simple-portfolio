@@ -26,9 +26,11 @@ These file can an need to be followed and updated when needed by user and assist
 
 - `src/app/*` - Next.js app directory
 - `src/types/*` - TypeScript type definitions
-- `src/components/*` - Other shared components
+- `src/components/*` - Shared components. Organized by feature/domain where possible (e.g., `projects`, `skills`).
 - `src/components/ui/*` - shadcn/ui atomic building blocks (do not add custom components here manually)
-- `src/components/sections/*` - Section components (Navbar, Hero, Projects, Skills, Footer, Contact)
+- `src/components/blocks/*` - Major page section components (e.g., Navbar, Hero, Projects, Skills, Footer, Contact)
+- `src/components/projects/*` - Components related to the projects feature
+- `src/components/skills/*` - Components related to the skills feature
 - `src/data/*` - Data files for skills, meta, socials and projects configuration
 - `src/hooks/*` - Custom hooks
 - `src/lib/*` - local libraries and utilities

@@ -4,7 +4,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme'
-import { Navbar, Footer } from '@/components/sections'
+import { Navbar, Footer } from '@/components/blocks'
 import { Toaster } from '@/components/ui/sonner'
 import { cn } from '@/lib'
 

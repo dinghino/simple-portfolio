@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
 import Link from 'next/link'
 import ScrambleRole from '@/components/scramble-role'
-import HeroBackground, { type WaveOptions } from '@/components/hero-background'
+import { HeroBackground, type WaveOptions } from '@/components/hero-background'
 
 const headingVariants = cva(
   'font-mono font-bold tracking-tight leading-none transition-opacity duration-500',

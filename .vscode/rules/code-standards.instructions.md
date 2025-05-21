@@ -39,7 +39,7 @@ applyTo: '**/*.{ts,tsx}'
    - Keep documentation up to date with code changes
 
 4. **Code Organization**
-   - Group related components in feature folders
+   - Group related components in feature folders (domain-driven organization when possible, e.g., `src/components/projects`, `src/components/skills`).
    - Use a domain driven approach to scope business logic elements
    - Keep utility functions in `src/lib/`
    - Use barrel exports (index.ts) for clean imports, including types and components

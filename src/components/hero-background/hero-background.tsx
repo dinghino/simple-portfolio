@@ -7,7 +7,7 @@ interface HeroBackgroundProps {
   waveOptions: WaveOptions[]
 }
 
-export default function HeroBackground({ waveOptions = [] }: HeroBackgroundProps) {
+export const HeroBackground: React.FC<HeroBackgroundProps> = ({ waveOptions = [] }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {

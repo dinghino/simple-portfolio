@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import { useGSAP, gsap } from '@/lib/gsap'
-import { ProjectCard } from '@/components/project-card'
+import { ProjectCard } from '@/components/projects/project-card'
 import type { Project } from '@/types/project'
 import { useStaggerAnimation } from '@/hooks/use-stagger-animation'
 

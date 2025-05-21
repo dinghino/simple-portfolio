@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import type { Skill, SkillCategory, SkillsData } from '@/types/skill'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { SkillItem } from '@/components/skill-item'
+import { SkillItem } from '@/components/skills/skill-item'
 import { useStaggerAnimation } from '@/hooks/use-stagger-animation'
 
 interface SkillsGridProps {
@@ -13,7 +13,7 @@ interface SkillsGridProps {
   className?: string
 }
 
-export default function SkillsGrid({ skills, className }: SkillsGridProps) {
+export const SkillsGrid: React.FC<SkillsGridProps> = ({ skills, className }) => {
   const initial = useMemo(() => Object.keys(skills)[0] as SkillCategory, [skills])
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>(initial)
   return (
