@@ -1,5 +1,3 @@
-/** @format */
-
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
@@ -19,8 +17,8 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Personal Portfolio',
-  description: 'A showcase of my projects and skills',
+  title: '</> dinghino',
+  description: 'Full-Stack Developer',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
