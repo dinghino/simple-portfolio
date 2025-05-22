@@ -1,0 +1,12 @@
+{
+  "menu": {
+    "about": "Chi sono",
+    "projects": "Progetti",
+    "skills": "Competenze",
+    "contact": "Contatti"
+  },
+  "buttons": {
+    "theme": "Tema",
+    "language": "Lingua"
+  }
+}
