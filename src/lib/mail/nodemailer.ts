@@ -1,6 +1,8 @@
+'use server'
+
 import nodemailer from 'nodemailer'
 
-export const mailTransport = nodemailer.createTransport({
+export const getMailTransport = async () => nodemailer.createTransport({
   host: process.env.CONTACT_MAIL_HOST,
   port: Number(process.env.CONTACT_MAIL_PORT),
   auth: {
@@ -9,7 +11,8 @@ export const mailTransport = nodemailer.createTransport({
   },
 })
 
-export const CONTACT_MAIL_NAME = process.env.CONTACT_MAIL_NAME
+// export const CONTACT_MAIL_NAME = process.env.CONTACT_MAIL_NAME
+export const getContactMailName = async () => process.env.CONTACT_MAIL_NAME
 
 // Usage example:
 // await mailTransport.sendMail({
@@ -20,4 +23,4 @@ export const CONTACT_MAIL_NAME = process.env.CONTACT_MAIL_NAME
 //   html: '<b>Body</b>',
 // });
 
-export default mailTransport
+// export default mailTransport

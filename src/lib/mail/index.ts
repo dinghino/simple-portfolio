@@ -1,4 +1,4 @@
-import mailer from './nodemailer'
-export default mailer
+// import mailer from './nodemailer'
+// export default mailer
 
 export * from './nodemailer'
