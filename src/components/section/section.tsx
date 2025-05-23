@@ -25,8 +25,7 @@ interface SectionProps extends React.PropsWithChildren, VariantProps<typeof sect
 }
 
 export const Section: React.FC<SectionProps> = (props) => {
-  const { id, title, subtitle, background, className, contentClassName, ref, children } =
-    props
+  const { id, title, subtitle, background, className, contentClassName, ref, children } = props
   return (
     <section id={id} className={cn(sectionVariants({ background }), className)} ref={ref}>
       <div className={cn('container px-4 md:px-6', contentClassName)}>

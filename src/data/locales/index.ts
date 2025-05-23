@@ -1,22 +1,9 @@
-export { default as enContent } from './en/content.json'
-export { default as enSystem } from './en/system.json'
-export { default as itContent } from './it/content.json'
-export { default as itSystem } from './it/system.json'
-
-import { default as enContent } from './en/content.json'
-import { default as enSystem } from './en/system.json'
-import { default as itContent } from './it/content.json'
-import { default as itSystem } from './it/system.json'
+import { default as en } from './en.json'
+import { default as it } from './it.json'
 
 const locales = {
-  en: {
-    content: enContent,
-    system: enSystem,
-  },
-  it: {
-    content: itContent,
-    system: itSystem,
-  },
+  en,
+  it,
 }
 
 export type LocaleData = typeof locales

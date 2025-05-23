@@ -1,10 +1,12 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme'
 
-import { Logo, NavItem, MobileDrawer } from '@/components/navbar'
-import { useState, useEffect } from 'react'
+import { Logo, NavItem, MobileDrawer, LanguageSwitcher } from '@/components/navbar'
 
 /**
  * Navigation item component
@@ -18,21 +20,21 @@ interface NavItemProps {
 
 type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void
 
-// Navigation items array for reuse
-const NAV_ITEMS = [
-  { href: '#hero', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
-
 /**
  * Main navigation component for the website
  */
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const t = useTranslations('system.menu')
+
+  // Navigation items array for reuse
+  const NAV_ITEMS = [
+    { href: '#about', label: t('about') },
+    { href: '#skills', label: t('skills') },
+    { href: '#projects', label: t('projects') },
+    { href: '#contact', label: t('contact') },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,6 +86,7 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <LanguageSwitcher />
           <MobileDrawer
             onClick={handleNavClick}
             open={open}

@@ -12,3 +12,10 @@ All rules to be followed are listed here. The assistant will follow these rules 
 These files should be referenced when applying changes to the codebase.
 
 - update the rules files when needed, either prompted by the user or when you see a need for it
+
+
+## Basic info
+
+- next.js 15+ with app router
+- tailwindcss, clsx and twmerge through @/lib/utils `cn`
+- class-variance-authority for variants

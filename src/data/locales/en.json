@@ -1,0 +1,25 @@
+{
+  "content": {
+    "about": {
+      "title": "About",
+      "subtitle": "And my partner in crime",
+      "paragraphs": [
+        "I've been working as a full time developer for more than 10 years and for over 20 years between other realities and industries. My background in surveying and security has given me a unique perspective on problem-solving and project management.",
+        "I like finding and solving problems, optimizing processes and creating new things, using the toolset that I grow whenever possible, exploring the ever growing pool of new technologies that comes out every week.",
+        "When I am not working I like to spend time learning new things, playing games and most importantly spending time with my pet companion."
+      ]
+    }
+  },
+  "system": {
+    "menu": {
+      "about": "About",
+      "projects": "Projects",
+      "skills": "Skills",
+      "contact": "Contact"
+    },
+    "buttons": {
+      "theme": "Theme",
+      "language": "Language"
+    }
+  }
+}

@@ -4,10 +4,11 @@ import { useRef } from 'react'
 import { gsap, useGSAP } from '@/lib/gsap'
 import { Section } from '@/components/section'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 export function About() {
   const sectionRef = useRef<HTMLDivElement>(null)
-
+  const t = useTranslations('content')
   useGSAP(
     () => {
       if (!sectionRef.current) return
@@ -22,7 +23,7 @@ export function About() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 60%',
+            start: 'top 90%',
           },
         },
       )
@@ -33,7 +34,7 @@ export function About() {
   return (
     <Section
       id="about"
-      title="About"
+      title={t('about.title')}
       background="muted"
       contentClassName="flex flex-col"
       ref={sectionRef}
