@@ -1,76 +1,77 @@
 {
   "content": {
-    "hero": {
-      "greeting": "Hello, I'm <bold>Daniele</bold>",
-      "subtitle": "Solving problems with code and design",
-      "description": "I specialize in building modern, responsive solutions with a focus on clean design, performance, and accessibility.",
-      "viewProjects": "View projects",
-      "contactMe": "Contact me"
-    },
-    "footer": {
-      "copyright": "All rights reserved."
-    },
     "about": {
-      "title": "About",
-      "subtitle": "And my partner in crime",
       "paragraphs": [
         "I've been working as a full time developer for more than 10 years and for over 20 years between other realities and industries. My background in surveying and security has given me a unique perspective on problem-solving and project management.",
         "I like finding and solving problems, optimizing processes and creating new things, using the toolset that I grow whenever possible, exploring the ever growing pool of new technologies that comes out every week.",
         "When I am not working I like to spend time learning new things, playing games and most importantly spending time with my pet companion."
-      ]
-    },
-    "skills": {
-      "title": "Skillset",
-      "subtitle": "The most important resource is the ability to learn, adapt and have the right tools to achieve the goals. Growing the toolset with new technologies is a continuous process.",
-      "categories": {
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "design": "Design",
-        "tools": "Tools"
-      },
-      "names": {}
+      ],
+      "subtitle": "And my partner in crime",
+      "title": "About"
     },
     "contact": {
-      "title": "Get in Touch",
-      "subtitle": "Have a question or want to work together? Send me a message and I'll get back to you as soon as possible.",
-      "infoTitle": "Contact Information",
       "emailLabel": "Email",
-      "locationLabel": "Location"
+      "infoTitle": "Contact Information",
+      "locationLabel": "Location",
+      "subtitle": "Have a question or want to work together? Send me a message and I'll get back to you as soon as possible.",
+      "title": "Get in Touch"
+    },
+    "footer": {
+      "copyright": "All rights reserved."
+    },
+    "hero": {
+      "contactMe": "Contact me",
+      "description": "I specialize in building modern, responsive solutions with a focus on clean design, performance, and accessibility.",
+      "greeting": "Hello, I'm <bold>Daniele</bold>",
+      "subtitle": "Solving problems with code and design",
+      "viewProjects": "View projects"
     },
     "projects": {
-      "title": "Featured Projects",
-      "subtitle": "A short collection of work, personal projects and open source contributions that I can share.",
       "groups": {
-        "personal": "Personal",
-        "work": "Work",
+        "experiments": "Experiments",
         "oss": "Open Source",
-        "experiments": "Experiments"
-      }
+        "personal": "Personal",
+        "work": "Work"
+      },
+      "subtitle": "A short collection of work, personal projects and open source contributions that I can share.",
+      "title": "Featured Projects"
+    },
+    "skills": {
+      "categories": {
+        "backend": "Backend",
+        "design": "Design",
+        "frontend": "Frontend",
+        "tools": "Tools"
+      },
+      "names": {},
+      "subtitle": "The most important resource is the ability to learn, adapt and have the right tools to achieve the goals. Growing the toolset with new technologies is a continuous process.",
+      "title": "Skillset"
     }
+  },
+  "shared": {
   },
   "system": {
-    "menu": {
-      "about": "About",
-      "projects": "Projects",
-      "skills": "Skills",
-      "contact": "Contact"
-    },
     "buttons": {
-      "theme": "Change theme",
       "language": "Language",
       "sendMessage": "Send message",
-      "sending": "Sending..."
-    },
-    "placeholders": {
-      "name": "Name",
-      "email": "your.email@example.com",
-      "message": "Your message..."
+      "sending": "Sending...",
+      "theme": "Change theme"
     },
     "formLabels": {
-      "name": "Name",
       "email": "Email",
-      "message": "Message"
+      "message": "Message",
+      "name": "Name"
+    },
+    "menu": {
+      "about": "About",
+      "contact": "Contact",
+      "projects": "Projects",
+      "skills": "Skills"
+    },
+    "placeholders": {
+      "email": "your.email@example.com",
+      "message": "Your message...",
+      "name": "Name"
     }
-  },
-  "shared": {}
+  }
 }

@@ -1,11 +1,13 @@
 'use client'
 
+import Link from 'next/link'
+
 import { cva } from 'class-variance-authority'
+import { useTranslations } from 'next-intl'
+import { DynamicIcon } from 'lucide-react/dynamic'
+
 import { cn } from '@/lib/utils'
 import type { Skill } from '@/types'
-import { DynamicIcon } from 'lucide-react/dynamic'
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 
 interface SkillItemProps {
   skill: Skill

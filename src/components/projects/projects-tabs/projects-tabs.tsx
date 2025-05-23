@@ -9,13 +9,6 @@ import { useStaggerAnimation } from '@/hooks/use-stagger-animation'
 import { ProjectsGrid } from '../projects-grid'
 import { ProjectCard } from '../project-card'
 
-const GROUP_LABELS: Record<ProjectGroup, string> = {
-  work: 'Work',
-  personal: 'Personal',
-  experiments: 'Experiments',
-  oss: 'OSS',
-}
-
 function getGroups(projects: Project[]) {
   return Array.from(
     new Set(projects.map((p) => p.group).filter((g): g is ProjectGroup => Boolean(g))),

@@ -14,10 +14,11 @@ declare namespace NodeJS {
 
 import { formats } from '@/i18n/request'
 import en from './src/data/locales/en.json'
-
+// TODO: fix this so that we don't get errors with some `t` methods (enable and see skill-item.tsx)
+// to understand
 declare module 'next-intl' {
-  interface AppConfig {
-    Messages: typeof en
-    Formats: typeof formats
-  }
+  // interface AppConfig {
+  //   Messages: typeof en
+  //   Formats: typeof formats
+  // }
 }
