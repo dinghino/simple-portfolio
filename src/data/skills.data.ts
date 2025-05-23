@@ -49,6 +49,10 @@ export const skillsData: SkillsData = {
   tools: tools.sort(byProficiencies),
 }
 
+/**
+ * Sort function to order skills by proficiency level.
+ * Used to get a more visually appealing order of skills in the UI.
+ */
 function byProficiencies(a: Skill, b: Skill) {
   const proficiencyMap = {
     beginner: 0,

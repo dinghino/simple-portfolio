@@ -5,17 +5,17 @@ import { Project } from '@/types/project'
  * Example: { 'username/repo1': { title: 'Custom Title' } }
  */
 export const githubRepositories: Record<string, Partial<Project>> = {
+  'dinghino/simple-portfolio': {
+    title: 'Personal website',
+    description: 'The source of this very own website',
+    technologies: ['Next.js', 'gsap', 'Tailwind', 'shadcn/ui', 'Copilot'],
+    group: 'personal',
+  },
   'dinghino/budgeting-app': {
     title: 'Budgeting App',
     description:
       'A work in progress personal budgeting application that helps users track their finances, tasks and more.',
     technologies: ['turborepo', 'Next.js', 'fastify', 'PostgreSQL'],
-    group: 'personal',
-  },
-  'dinghino/simple-portfolio': {
-    title: 'Personal website',
-    description: 'The source of this very own website',
-    technologies: ['Next.js', 'gsap', 'Tailwind', 'shadcn/ui', 'Copilot'],
     group: 'personal',
   },
   'dinghino/tictoc': {

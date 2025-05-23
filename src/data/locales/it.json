@@ -1,0 +1,82 @@
+{
+  "content": {
+    "hero": {
+      "greeting": "Ciao, sono <bold>Daniele</bold>",
+      "subtitle": "Risolvo problemi con codice e design",
+      "description": "Specializzato in soluzioni moderne con attenzione a design pulito, performance e accessibilità.",
+      "viewProjects": "Progetti",
+      "contactMe": "Contattami"
+    },
+    "footer": {
+      "copyright": "Tutti i diritti riservati."
+    },
+    "about": {
+      "title": "Chi sono",
+      "subtitle": "E il mio compagno di avventure",
+      "paragraphs": [
+        "Lavoro come sviluppatore a tempo pieno da oltre 10 anni e da più di 20 tra varie realtà e settori. Il mio background in topografia e sicurezza mi ha dato una prospettiva unica nella risoluzione dei problemi e nella gestione dei progetti.",
+        "Mi piace trovare e risolvere problemi, ottimizzare processi e creare cose nuove, usando il set di strumenti che accresco ogni volta che posso, esplorando il continuo flusso di nuove tecnologie che escono ogni settimana.",
+        "Quando non lavoro mi piace imparare cose nuove, giocare e soprattutto passare il tempo con il mio compagno a quattro zampe."
+      ]
+    },
+    "skills": {
+      "title": "Competenze",
+      "subtitle": "La risorsa più importante è la capacità di imparare, adattarsi ed avere gli strumenti giusti per raggiungere gli obiettivi. Accrescere il toolset è con nuove tecnologie è un processo continuo.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "design": "Design",
+        "tools": "Strumenti"
+      },
+      "names": {
+        "Prototyping": "Prototipazione",
+        "Color Theory": "Teoria del colore",
+        "UX Design": "Esperienza utente",
+        "Web Accessibility": "Accessibilità"
+      }
+    },
+    "contact": {
+      "title": "Contatti",
+      "subtitle": "Hai una domanda o vuoi collaborare? Inviami un messaggio e ti risponderò il prima possibile.",
+      "infoTitle": "Informazioni di contatto",
+      "emailLabel": "Email",
+      "locationLabel": "Località"
+    },
+
+    "projects": {
+      "title": "Progetti in evidenza",
+      "subtitle": "Alcuni progetti personali, di lavoro e contribuzioni open source.",
+      "groups": {
+        "personal": "Personali",
+        "work": "Lavoro",
+        "oss": "Open Source",
+        "experiments": "Esperimenti"
+      }
+    }
+  },
+  "system": {
+    "menu": {
+      "about": "Chi sono",
+      "projects": "Progetti",
+      "skills": "Competenze",
+      "contact": "Contatti"
+    },
+    "buttons": {
+      "theme": "Cambia tema",
+      "language": "Lingua",
+      "sendMessage": "Invia messaggio",
+      "sending": "Invio in corso..."
+    },
+    "placeholders": {
+      "name": "Nome",
+      "email": "your.email@example.com",
+      "message": "Il tuo messaggio..."
+    },
+    "formLabels": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio"
+    }
+  },
+  "shared": {}
+}

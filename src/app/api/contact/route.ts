@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { contactFormSchema } from '@/schemas/contact-form'
-import { mailTransport, CONTACT_MAIL_NAME } from '@/lib/mail/nodemailer'
+import { getMailTransport, getContactMailName } from '@/lib/mail/nodemailer'
 
 /**
  * API Route: POST /api/contact
@@ -18,7 +18,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Invalid form data.' }, { status: 400 })
     }
     const { name, email, message } = parsed.data
-    await mailTransport.sendMail({
+
+    const transport = await getMailTransport()
+    const CONTACT_MAIL_NAME = await getContactMailName()
+    await transport.sendMail({
       from: `"${CONTACT_MAIL_NAME}" <${process.env.CONTACT_MAIL_USER}>`,
       to: process.env.CONTACT_MAIL_TO,
       subject: `New Contact Form Submission from ${name}`,

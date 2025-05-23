@@ -1,1 +1,1 @@
-export { default } from './projects-grid'
+export * from './projects-grid'

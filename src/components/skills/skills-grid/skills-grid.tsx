@@ -3,6 +3,7 @@
 import React, { useMemo, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import type { Skill, SkillCategory, SkillsData } from '@/types/skill'
+import { useTranslations } from 'next-intl'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { SkillItem } from '@/components/skills/skill-item'
@@ -14,6 +15,7 @@ interface SkillsGridProps {
 }
 
 export const SkillsGrid: React.FC<SkillsGridProps> = ({ skills, className }) => {
+  const t = useTranslations('content.skills')
   const initial = useMemo(() => Object.keys(skills)[0] as SkillCategory, [skills])
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>(initial)
   return (
@@ -30,7 +32,7 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ skills, className }) => 
             value={category}
             className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none cursor-pointer"
           >
-            {category.charAt(0).toUpperCase() + category.slice(1)}
+            {t(`categories.${category}`, { default: capitalize(category) })}
           </TabsTrigger>
         ))}
       </TabsList>
@@ -76,7 +78,7 @@ const TabContent: React.FC<TabContentProps> = ({ selected, category, skills }) =
     <TabsContent key={category} value={category} className="mt-0">
       <div
         key={category}
-        ref={category === category ? containerRef : undefined}
+        ref={containerRef}
         className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2')}
       >
         {skills.map((skill) => (
@@ -85,4 +87,8 @@ const TabContent: React.FC<TabContentProps> = ({ selected, category, skills }) =
       </div>
     </TabsContent>
   )
+}
+
+function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }

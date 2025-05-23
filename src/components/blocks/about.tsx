@@ -1,12 +1,22 @@
 'use client'
 
 import { useRef } from 'react'
-import { gsap, useGSAP } from '@/lib/gsap'
-import { Section } from '@/components/section'
+import { useTranslations, useFormatter } from 'next-intl'
 import Image from 'next/image'
 
+import { gsap, useGSAP } from '@/lib/gsap'
+import { Section } from '@/components/section'
+
+/**
+ * About section
+ * TODO: use @next/mdx to make it fancier.
+ * @see https://nextjs.org/docs/app/guides/mdx
+ * @see https://next-intl.dev/docs/environments/mdx
+ */
 export function About() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations('content.about')
+  const format = useFormatter()
 
   useGSAP(
     () => {
@@ -22,7 +32,7 @@ export function About() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 60%',
+            start: 'top 90%',
           },
         },
       )
@@ -33,7 +43,8 @@ export function About() {
   return (
     <Section
       id="about"
-      title="About"
+      title={t('title')}
+      // subtitle={t('subtitle')}
       background="muted"
       contentClassName="flex flex-col"
       ref={sectionRef}
@@ -50,20 +61,9 @@ export function About() {
           />
         </div>
         <div className="flex-1 flex flex-col items-start gap-6 font-mono text-muted-foreground max-w-2xl">
-          <p>
-            I've been working as a full time developer for more than 10 years and for over 20 years
-            between other realities and industries. My background in surveying and security has
-            given me a unique perspective on problem-solving and project management.
-          </p>
-          <p>
-            I like finding and solving problems, optimizing processes and creating new things, using
-            the toolset that I grow whenever possible, exploring the ever growing pool of new
-            technologies that comes out every week.
-          </p>
-          <p>
-            When I am not working I like to spend time learning new things, playing games and most
-            importantly spending time with my pet companion.
-          </p>
+          {t.raw('paragraphs').map((txt: string, idx: number) => (
+            <p key={idx}>{txt}</p>
+          ))}
         </div>
       </div>
     </Section>
