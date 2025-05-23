@@ -1,5 +1,12 @@
 {
   "content": {
+    "hero": {
+      "greeting": "Ciao, sono <bold>Daniele</bold>",
+      "subtitle": "Risolvo problemi con codice e design",
+      "description": "Specializzato in soluzioni moderne con attenzione a design pulito, performance e accessibilità.",
+      "viewProjects": "Progetti",
+      "contactMe": "Contattami"
+    },
     "about": {
       "title": "Chi sono",
       "subtitle": "E il mio compagno di avventure",
@@ -18,8 +25,9 @@
       "contact": "Contatti"
     },
     "buttons": {
-      "theme": "Tema",
+      "theme": "Cambia tema",
       "language": "Lingua"
     }
-  }
+  },
+  "shared": {}
 }

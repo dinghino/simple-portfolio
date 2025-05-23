@@ -8,15 +8,16 @@ import { LanguagesIcon } from 'lucide-react'
 import { languages } from '@/data/locales'
 import { Link } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { cn } from '@/lib'
 
 export function LanguageSwitcher() {
   const locale = useLocale()
+  const t = useTranslations('system.buttons')
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Change language">
+        <Button variant="ghost" size="icon" aria-label={t('language')}>
           <LanguagesIcon className="w-5 h-5" />
         </Button>
       </DropdownMenuTrigger>

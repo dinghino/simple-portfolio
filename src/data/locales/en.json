@@ -1,5 +1,12 @@
 {
   "content": {
+    "hero": {
+      "greeting": "Hello, I'm <bold>Daniele</bold>",
+      "subtitle": "Solving problems with code and design",
+      "description": "I specialize in building modern, responsive solutions with a focus on clean design, performance, and accessibility.",
+      "viewProjects": "View projects",
+      "contactMe": "Contact me"
+    },
     "about": {
       "title": "About",
       "subtitle": "And my partner in crime",
@@ -18,8 +25,9 @@
       "contact": "Contact"
     },
     "buttons": {
-      "theme": "Theme",
+      "theme": "Change theme",
       "language": "Language"
     }
-  }
+  },
+  "shared": {}
 }
