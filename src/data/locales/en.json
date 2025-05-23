@@ -7,6 +7,9 @@
       "viewProjects": "View projects",
       "contactMe": "Contact me"
     },
+    "footer": {
+      "copyright": "All rights reserved."
+    },
     "about": {
       "title": "About",
       "subtitle": "And my partner in crime",
@@ -18,7 +21,7 @@
     },
     "skills": {
       "title": "Skillset",
-      "subtitle": "Some of the technologies and tools I have experience with. I am always eager to learn and explore new technologies, so this list is constantly evolving.",
+      "subtitle": "The most important resource is the ability to learn, adapt and have the right tools to achieve the goals. Growing the toolset with new technologies is a continuous process.",
       "categories": {
         "frontend": "Frontend",
         "backend": "Backend",
@@ -34,8 +37,15 @@
       "emailLabel": "Email",
       "locationLabel": "Location"
     },
-    "footer": {
-      "copyright": "All rights reserved."
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "A short collection of work, personal projects and open source contributions that I can share.",
+      "groups": {
+        "personal": "Personal",
+        "work": "Work",
+        "oss": "Open Source",
+        "experiments": "Experiments"
+      }
     }
   },
   "system": {

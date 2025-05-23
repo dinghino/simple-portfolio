@@ -1,21 +1,20 @@
-import { githubRepositories } from '@/data/projects.data'
+import { getTranslations } from 'next-intl/server'
 import { api } from '@/lib/github'
 import { githubRepoToProject } from '@/lib/github/adapter'
+
+import { githubRepositories } from '@/data/projects.data'
+
 import { ProjectsTabs } from '@/components/projects'
 import { Section } from '@/components/section'
+
 import type { Project } from '@/types/project'
 
 export async function Projects() {
-  // Fetch GitHub projects
+  const t = await getTranslations('content.projects')
   const projects = await fetchGithubProjects()
 
   return (
-    <Section
-      id="projects"
-      title="Featured Projects"
-      subtitle="A short collection of work, personal projects and open source contributions that I can share."
-      background="default"
-    >
+    <Section id="projects" title={t('title')} subtitle={t('subtitle')} background="default">
       <ProjectsTabs projects={projects} />
     </Section>
   )

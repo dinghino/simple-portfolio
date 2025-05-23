@@ -1,11 +1,13 @@
 'use client'
 import { useMemo, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { Project, ProjectGroup } from '@/types/project'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-// import ProjectsGrid from '@/components/projects-grid'
-import { ProjectCard } from '../project-card'
 import { useStaggerAnimation } from '@/hooks/use-stagger-animation'
+
+import { ProjectsGrid } from '../projects-grid'
+import { ProjectCard } from '../project-card'
 
 const GROUP_LABELS: Record<ProjectGroup, string> = {
   work: 'Work',
@@ -26,6 +28,8 @@ interface ProjectsTabsProps {
 
 export function ProjectsTabs({ projects }: ProjectsTabsProps) {
   // Get all groups present in the data, in order
+  const t = useTranslations('content.projects.groups')
+
   const groups = useMemo(() => getGroups(projects), [projects])
   const initial = useMemo(() => groups[0] ?? 'work', [groups])
   const [active, setActive] = useState<ProjectGroup>(initial)
@@ -34,22 +38,20 @@ export function ProjectsTabs({ projects }: ProjectsTabsProps) {
     return projects.filter((p) => p.group === active)
   }, [projects, active])
 
-  // // Fallback: if no group, show all in one tab
-  // if (groups.length === 0) {
-  //   return <ProjectsGrid projects={projects} />
-  // }
+  // Fallback: if no group, show all in one tab
+  if (groups.length === 0) {
+    return <ProjectsGrid projects={projects} />
+  }
 
   return (
     <Tabs defaultValue={initial} value={active} onValueChange={(g) => setActive(g as ProjectGroup)}>
-      {/* <div className="bg-background sticky top-16 py-4 z-10"> */}
       <TabsList>
         {groups.map((group) => (
           <TabsTrigger key={group} value={group}>
-            {GROUP_LABELS[group] ?? group}
+            {t.has(group) ? t(group) : group}
           </TabsTrigger>
         ))}
       </TabsList>
-      {/* </div> */}
       {groups.map((group) => (
         <TabContent
           key={group}
@@ -90,7 +92,7 @@ const TabContent: React.FC<TabContentProps> = ({ group, projects, active }) => {
     <TabsContent value={active} className="w-full">
       <div
         key={group}
-        ref={group === active ? containerRef : undefined}
+        ref={containerRef}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2"
       >
         {projects.map((project) => (

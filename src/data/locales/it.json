@@ -7,6 +7,9 @@
       "viewProjects": "Progetti",
       "contactMe": "Contattami"
     },
+    "footer": {
+      "copyright": "Tutti i diritti riservati."
+    },
     "about": {
       "title": "Chi sono",
       "subtitle": "E il mio compagno di avventure",
@@ -18,7 +21,7 @@
     },
     "skills": {
       "title": "Competenze",
-      "subtitle": "Alcune delle tecnologie e strumenti con cui ho esperienza. Sono sempre curioso di imparare ed esplorare nuove tecnologie, quindi questa lista è in continua evoluzione.",
+      "subtitle": "La risorsa più importante è la capacità di imparare, adattarsi ed avere gli strumenti giusti per raggiungere gli obiettivi. Accrescere il toolset è con nuove tecnologie è un processo continuo.",
       "categories": {
         "frontend": "Frontend",
         "backend": "Backend",
@@ -33,14 +36,22 @@
       }
     },
     "contact": {
-      "title": "Contattami",
+      "title": "Contatti",
       "subtitle": "Hai una domanda o vuoi collaborare? Inviami un messaggio e ti risponderò il prima possibile.",
       "infoTitle": "Informazioni di contatto",
       "emailLabel": "Email",
       "locationLabel": "Località"
     },
-    "footer": {
-      "copyright": "Tutti i diritti riservati."
+
+    "projects": {
+      "title": "Progetti in evidenza",
+      "subtitle": "Alcuni progetti personali, di lavoro e contribuzioni open source.",
+      "groups": {
+        "personal": "Personali",
+        "work": "Lavoro",
+        "oss": "Open Source",
+        "experiments": "Esperimenti"
+      }
     }
   },
   "system": {
