@@ -15,6 +15,17 @@
         "I like finding and solving problems, optimizing processes and creating new things, using the toolset that I grow whenever possible, exploring the ever growing pool of new technologies that comes out every week.",
         "When I am not working I like to spend time learning new things, playing games and most importantly spending time with my pet companion."
       ]
+    },
+    "skills": {
+      "title": "Skillset",
+      "subtitle": "Some of the technologies and tools I have experience with. I am always eager to learn and explore new technologies, so this list is constantly evolving.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "design": "Design",
+        "tools": "Tools"
+      },
+      "names": {}
     }
   },
   "system": {
@@ -26,7 +37,13 @@
     },
     "buttons": {
       "theme": "Change theme",
-      "language": "Language"
+      "language": "Language",
+      "sendMessage": "Send message"
+    },
+    "placeholders": {
+      "name": "Name",
+      "email": "your.email@example.com",
+      "message": "Your message..."
     }
   },
   "shared": {}

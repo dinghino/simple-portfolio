@@ -15,6 +15,22 @@
         "Mi piace trovare e risolvere problemi, ottimizzare processi e creare cose nuove, usando il set di strumenti che accresco ogni volta che posso, esplorando il continuo flusso di nuove tecnologie che escono ogni settimana.",
         "Quando non lavoro mi piace imparare cose nuove, giocare e soprattutto passare il tempo con il mio compagno a quattro zampe."
       ]
+    },
+    "skills": {
+      "title": "Competenze",
+      "subtitle": "Alcune delle tecnologie e strumenti con cui ho esperienza. Sono sempre curioso di imparare ed esplorare nuove tecnologie, quindi questa lista è in continua evoluzione.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "design": "Design",
+        "tools": "Strumenti"
+      },
+      "names": {
+        "Prototyping": "Prototipazione",
+        "Color Theory": "Teoria del colore",
+        "UX Design": "Esperienza utente",
+        "Web Accessibility": "Accessibilità"
+      }
     }
   },
   "system": {
@@ -26,7 +42,13 @@
     },
     "buttons": {
       "theme": "Cambia tema",
-      "language": "Lingua"
+      "language": "Lingua",
+      "sendMessage": "Invia messaggio"
+    },
+    "placeholders": {
+      "name": "Nome",
+      "email": "la tua email...",
+      "message": "Il tuo messaggio..."
     }
   },
   "shared": {}

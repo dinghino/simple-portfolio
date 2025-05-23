@@ -2,7 +2,7 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import { Inter, Roboto_Mono } from 'next/font/google'
 
-import { getLocale, getMessages } from 'next-intl/server'
+import { getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
 
 import { ThemeProvider } from '@/components/theme'
@@ -19,8 +19,13 @@ export const metadata: Metadata = {
   description: 'Full-Stack Developer',
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = await getLocale()
+export type RootLayoutProps = {
+  params: Promise<{ locale: string }>
+  children: React.ReactNode
+}
+
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const { locale } = await params
   const messages = await getMessages({ locale })
 
   return (

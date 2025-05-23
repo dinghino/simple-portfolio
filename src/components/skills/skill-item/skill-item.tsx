@@ -1,8 +1,11 @@
+'use client'
+
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import type { Skill } from '@/types'
 import { DynamicIcon } from 'lucide-react/dynamic'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 interface SkillItemProps {
   skill: Skill
@@ -31,19 +34,28 @@ export const SkillItem: React.FC<SkillItemProps> = ({
   skill: { name, icon, proficiency },
   link,
   className,
-}) => (
-  <div className={cn(skillItemVariants({ proficiency }), className)}>
-    {icon && (
-      <span className="text-xl">
-        <DynamicIcon name={icon} className="h-5 w-5 mr-2 shrink-0" />
-      </span>
-    )}
-    {link ? (
-      <Link href={link} target="_blank" rel="noopener noreferrer" className="underline">
-        {name}
-      </Link>
-    ) : (
-      <span>{name}</span>
-    )}
-  </div>
-)
+}) => {
+  const t = useTranslations('content.skills.names')
+  const localizedName = t.has(name) ? t(name) : name
+
+  const _icon = !!icon && (
+    <span className="text-xl">
+      <DynamicIcon name={icon} className="h-5 w-5 mr-2 shrink-0" />
+    </span>
+  )
+
+  const content = link ? (
+    <Link href={link} target="_blank" rel="noopener noreferrer" className="underline">
+      {localizedName}
+    </Link>
+  ) : (
+    <span>{localizedName}</span>
+  )
+
+  return (
+    <div className={cn(skillItemVariants({ proficiency }), className)}>
+      {_icon}
+      {content}
+    </div>
+  )
+}
