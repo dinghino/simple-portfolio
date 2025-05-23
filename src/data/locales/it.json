@@ -31,6 +31,16 @@
         "UX Design": "Esperienza utente",
         "Web Accessibility": "Accessibilità"
       }
+    },
+    "contact": {
+      "title": "Contattami",
+      "subtitle": "Hai una domanda o vuoi collaborare? Inviami un messaggio e ti risponderò il prima possibile.",
+      "infoTitle": "Informazioni di contatto",
+      "emailLabel": "Email",
+      "locationLabel": "Località"
+    },
+    "footer": {
+      "copyright": "Tutti i diritti riservati."
     }
   },
   "system": {
@@ -43,12 +53,18 @@
     "buttons": {
       "theme": "Cambia tema",
       "language": "Lingua",
-      "sendMessage": "Invia messaggio"
+      "sendMessage": "Invia messaggio",
+      "sending": "Invio in corso..."
     },
     "placeholders": {
       "name": "Nome",
-      "email": "la tua email...",
+      "email": "your.email@example.com",
       "message": "Il tuo messaggio..."
+    },
+    "formLabels": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio"
     }
   },
   "shared": {}

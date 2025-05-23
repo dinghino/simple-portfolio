@@ -26,6 +26,16 @@
         "tools": "Tools"
       },
       "names": {}
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Have a question or want to work together? Send me a message and I'll get back to you as soon as possible.",
+      "infoTitle": "Contact Information",
+      "emailLabel": "Email",
+      "locationLabel": "Location"
+    },
+    "footer": {
+      "copyright": "All rights reserved."
     }
   },
   "system": {
@@ -38,12 +48,18 @@
     "buttons": {
       "theme": "Change theme",
       "language": "Language",
-      "sendMessage": "Send message"
+      "sendMessage": "Send message",
+      "sending": "Sending..."
     },
     "placeholders": {
       "name": "Name",
       "email": "your.email@example.com",
       "message": "Your message..."
+    },
+    "formLabels": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
     }
   },
   "shared": {}

@@ -18,8 +18,10 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { useTranslations } from 'next-intl'
 
 export function ContactForm() {
+  const t = useTranslations('system')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const form = useForm<ContactFormValues>({
@@ -66,9 +68,9 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-mono">Name</FormLabel>
+              <FormLabel className="font-mono">{t('formLabels.name')}</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" autoComplete="name" {...field} />
+                <Input placeholder={t('placeholders.name')} autoComplete="name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -79,10 +81,10 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-mono">Email</FormLabel>
+              <FormLabel className="font-mono">{t('formLabels.email')}</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="your.email@example.com"
+                  placeholder={t('placeholders.email')}
                   type="email"
                   autoComplete="email"
                   {...field}
@@ -97,9 +99,9 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-mono">Message</FormLabel>
+              <FormLabel className="font-mono">{t('formLabels.message')}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Your message..." className="min-h-32" {...field} />
+                <Textarea placeholder={t('placeholders.message')} className="min-h-32" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -114,7 +116,7 @@ export function ContactForm() {
           aria-hidden="true"
         />
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? t('buttons.sending') : t('buttons.sendMessage')}
         </Button>
       </form>
     </Form>
