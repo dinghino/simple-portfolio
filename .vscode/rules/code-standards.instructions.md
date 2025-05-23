@@ -68,3 +68,8 @@ applyTo: '**/*.{ts,tsx}'
    - Use lowercase and dash-case for all file names, including components and data files.
    - All major folders (data, hooks, lib, lib/github, components/ui, types) must have an `index.ts` for barrel exports.
    - to add new shadcn components use `pnpm dlx shadcn@latest add <component-name>` instead of manually writing it.
+
+8. **Localization**
+   - Use `next-intl` for localization
+   - use `useTranslation` for client components
+   - await `getTranslations` from `next-intl/server` for server components

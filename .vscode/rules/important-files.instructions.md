@@ -37,13 +37,9 @@ These file can an need to be followed and updated when needed by user and assist
 - `src/lib/github/*` - GitHub API helpers
 - `src/schemas/*` - Zod schemas for form validation
 - `src/app/api/contact` - API route for contact form, validates and sends email via Nodemailer
+- `src/data/locales/<locale>.json` - Localization files. Page section keys (e.g., hero) are nested under `content.<section>`. Use this convention for all new localizable sections.
 
 ## Documentation
 
 - `README.md` - Project documentation
 - `.vscode/rules/*.md` - Cursor rules and standards
-
-## Build and Cache
-
-- `.next/*` - Next.js build output
-- `node_modules/*` - Project dependencies
