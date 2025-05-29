@@ -11,6 +11,9 @@ export const githubRepositories: Record<string, Partial<Project>> = {
     technologies: ['Next.js', 'gsap', 'Tailwind', 'shadcn/ui', 'Copilot'],
     group: 'personal',
   },
+  'dinghino/wall-clock': {
+    group: 'personal'
+  },
   'dinghino/budgeting-app': {
     title: 'Budgeting App',
     description:
