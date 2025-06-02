@@ -1,9 +1,9 @@
-import { IconName } from "lucide-react/dynamic"
+import { IconName } from 'lucide-react/dynamic'
 
 /**
  * Different categories of skills
  */
-export type SkillCategory = 'frontend' | 'backend' | 'design' | 'tools'
+export type SkillCategory = 'frontend' | 'backend' | 'other' | 'design' | 'tools'
 
 /**
  * Proficiency levels for skills

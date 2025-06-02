@@ -26,7 +26,8 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "design": "Design",
-        "tools": "Strumenti"
+        "tools": "Strumenti",
+        "other": "Altro"
       },
       "names": {
         "Prototyping": "Prototipazione",

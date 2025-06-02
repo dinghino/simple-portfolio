@@ -8,7 +8,6 @@ const frontend: Skill[] = [
   { name: 'Next.js', proficiency: 'advanced', icon: 'layers' },
   { name: 'sveltekit', proficiency: 'intermediate', icon: 'layers' },
   { name: 'PayloadCMS', proficiency: 'advanced', icon: 'layers' },
-  // { name: 'GraphQL (Client)', proficiency: 'intermediate', icon: 'database' },
 ]
 const backend: Skill[] = [
   { name: 'Python', proficiency: 'expert', icon: 'code' },
@@ -42,11 +41,24 @@ const tools: Skill[] = [
   { name: 'Vite', proficiency: 'intermediate', icon: 'settings' },
   { name: 'bun', proficiency: 'intermediate', icon: 'settings' },
 ]
+
+const other: Skill[] = [
+  { name: 'C++', proficiency: 'intermediate', icon: 'code' },
+  { name: "Unreal Engine", proficiency: 'beginner', icon: 'gamepad' },
+  { name: 'Arduino', proficiency: 'intermediate', icon: 'code' },
+  { name: 'Java', proficiency: 'beginner', icon: 'code' },
+  { name: 'PHP', proficiency: 'beginner', icon: 'code' },
+  { name: 'Rust', proficiency: 'beginner', icon: 'code' },
+  { name: 'Linux', proficiency: 'expert', icon: 'terminal' },
+
+]
+
 export const skillsData: SkillsData = {
   frontend: frontend.sort(byProficiencies),
   backend: backend.sort(byProficiencies),
   design: design.sort(byProficiencies),
   tools: tools.sort(byProficiencies),
+  other: other.sort(byProficiencies),
 }
 
 /**

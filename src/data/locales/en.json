@@ -41,7 +41,8 @@
         "backend": "Backend",
         "design": "Design",
         "frontend": "Frontend",
-        "tools": "Tools"
+        "tools": "Tools",
+        "other": "Other"
       },
       "names": {},
       "subtitle": "The most important resource is the ability to learn, adapt and have the right tools to achieve the goals. These are some of the technologies I am used to work with.",
