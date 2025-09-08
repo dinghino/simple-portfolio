@@ -53,14 +53,15 @@ export const githubRepositories: Record<string, Partial<Project>> = {
       'Website for Ojedis logistics company, a logistics and transportation company based in NYC.',
     group: 'work',
   },
-  'dinghino/tenfe-cafe': {
-    title: 'PayloadCMS website',
-    description:
-      'Website for tenfe cafe built with PayloadCMS. Used as a base and demo to customize Payload.',
-    technologies: ['Next.js', 'PayloadCMS', 'Tailwind'],
-    visitLabel: 'Visit',
-    group: 'work',
-  },
+  // temporarily down for business reasons, domain is unsecured
+  // 'dinghino/tenfe-cafe': {
+  //   title: 'PayloadCMS website',
+  //   description:
+  //     'Website for tenfe cafe built with PayloadCMS. Used as a base and demo to customize Payload.',
+  //   technologies: ['Next.js', 'PayloadCMS', 'Tailwind'],
+  //   visitLabel: 'Visit',
+  //   group: 'work',
+  // },
   'dinghino/hhhq-forms': {
     title: 'H3Q Website',
     homepage: 'https://h3q.io',
