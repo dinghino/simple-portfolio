@@ -31,6 +31,14 @@ export const githubRepositories: Record<string, Partial<Project>> = {
       'Modular and extensible tool to fetch stocks historical data, FTD and more from various sources.',
     group: 'oss',
   },
+  'dinghino/quickship-logistics': {
+    title: 'Quickship Logistics',
+    description:
+      'Load board application for self managed delivery job listings, dispatching and more, based in NYC',
+    visitLabel: 'Visit',
+    group: 'work',
+    homepage: 'https://goquickship.com',
+  },
   'dinghino/logica-international': {
     title: 'Logìca International',
     description:
