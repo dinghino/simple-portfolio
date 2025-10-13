@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { contactFormSchema } from '@/schemas/contact-form'
+import { contactFormSchema, ContactFormValues } from '@/schemas/contact-form'
 import { getMailTransport, getContactMailName } from '@/lib/mail/nodemailer'
 
 /**
@@ -8,9 +8,9 @@ import { getMailTransport, getContactMailName } from '@/lib/mail/nodemailer'
  */
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
+    const body = await req.json() as ContactFormValues
     // Honeypot anti-spam: ignore if hidden field is filled
-    if (body.website) {
+    if (body.acknowledge) {
       return NextResponse.json({ success: true })
     }
     const parsed = contactFormSchema.safeParse(body)

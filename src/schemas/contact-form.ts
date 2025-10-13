@@ -10,6 +10,7 @@ export const contactFormSchema = z.object({
   message: z.string().min(10, {
     message: 'Message must be at least 10 characters.',
   }),
+  acknowledge: z.boolean().optional(), // honey
 })
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>

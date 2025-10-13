@@ -19,6 +19,15 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useTranslations } from 'next-intl'
+import { Checkbox } from '../ui/checkbox'
+
+async function sendContactForm(data: ContactFormValues) {
+  return fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+}
 
 export function ContactForm() {
   const t = useTranslations('system')
@@ -30,33 +39,20 @@ export function ContactForm() {
       name: '',
       email: '',
       message: '',
+      acknowledge: false,
     },
   })
 
   async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true)
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      })
-      const result = await response.json()
-      if (result.success) {
-        toast.success('Thank you for your message. We will get back to you soon.', {
-          description: 'Message sent!',
-        })
+    await toast.promise(sendContactForm(values), {
+      loading: 'Sending message...',
+      success: () => {
         form.reset()
-      } else {
-        toast.error(result.error || 'Failed to send message. Please try again later.', {
-          description: 'Error',
-        })
-      }
-    } catch (e) {
-      toast.error('Failed to send message. Please try again later.', {
-        description: 'Error',
-      })
-    }
+        return 'Message sent!'
+      },
+      error: 'Failed to send message. Please try again later.',
+    })
     setIsSubmitting(false)
   }
 
@@ -107,14 +103,21 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <input
-          type="text"
-          name="website"
-          autoComplete="off"
-          tabIndex={-1}
-          className="hidden"
-          aria-hidden="true"
+        <FormField
+          control={form.control}
+          name="acknowledge"
+          render={({ field }) => (
+            <div className="hidden">
+              <FormItem className="flex space-x-2 display-none">
+                <FormControl>
+                  <Checkbox onCheckedChange={(v) => field.onChange(v)} checked={field.value} />
+                </FormControl>
+                <FormLabel className="font-mono">Contact me back</FormLabel>
+              </FormItem>
+            </div>
+          )}
         />
+
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? t('buttons.sending') : t('buttons.sendMessage')}
         </Button>
